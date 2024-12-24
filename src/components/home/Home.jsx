@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import Header from "./Header"
 import Pelo from "../../assets/pelo.webp"
 import Image1 from "../../assets/image1.webp"
 import Image2 from "../../assets/image2.webp"
@@ -8,6 +7,7 @@ import Image4 from "../../assets/image4.webp"
 import Image5 from "../../assets/image5.webp"
 import '../../styles/global.css'
 import '../../styles/home.css'
+import OndaNavbar from "../navbar/OndaNavbar.jsx";
 
 /**
  * Componente Home
@@ -22,8 +22,10 @@ function Home(){
 
     return(
         <>
-            <Header></Header>
-            
+            {/*<Header></Header>*/}
+            <OndaNavbar></OndaNavbar>
+
+
             <section className="section">
             <h1 className="mainTitle">
             Guia histórico de Salvador
