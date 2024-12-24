@@ -1,7 +1,6 @@
-
 import { Link } from "react-router-dom"
-import Header from "../home/Header"
 import '../../styles/home_admin.css'
+import OndaNavbar from "../navbar/OndaNavbar.jsx";
 
 export default function AdminHome(){
 
@@ -9,7 +8,8 @@ export default function AdminHome(){
 
     return(
         <>
-            <Header></Header>
+            {/*<Header></Header>*/}
+            <OndaNavbar></OndaNavbar>
             
             <div className="container">
 

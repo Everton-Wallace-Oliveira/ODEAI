@@ -1,8 +1,8 @@
 import React from "react"
-import Header from "./Header"
 import Carousel from "./Carousel"
 import '../../styles/global.css'
 import '../../styles/home.css'
+import OndaNavbar from "../navbar/OndaNavbar.jsx";
 
 
 /**
@@ -17,8 +17,9 @@ export default function Places(){
 
  return(
     <>
-    <Header></Header>
-    <Carousel></Carousel>
+    {/*<Header></Header>*/}
+        <OndaNavbar></OndaNavbar>
+        <Carousel></Carousel>
     </>
  )
 
