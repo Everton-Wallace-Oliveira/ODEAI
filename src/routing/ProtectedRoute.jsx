@@ -1,18 +1,20 @@
 import { Navigate } from 'react-router-dom';
-import {isTokenExpired} from '../authentication/tokenVerification.js'
+import { isTokenExpired } from '../authentication/tokenVerification.js';
 export const ProtectedRoute = ({
-    redirectPath = '/',
-    adminOnly = false,
-    children,
+  redirectPath = '/',
+  adminOnly = false,
+  children,
 }) => {
+  const token = localStorage.getItem('token');
+  const isAdmin = localStorage.getItem('isAdmin');
 
-    const token = localStorage.getItem('token');
-    const isAdmin = localStorage.getItem('isAdmin');
+  if (
+    token &&
+    !isTokenExpired(token) &&
+    (adminOnly ? isAdmin == 'true' : true)
+  ) {
+    return children;
+  }
 
-    if (token && !isTokenExpired(token) && (adminOnly ? isAdmin == 'true' : true)) {
-        return children;
-    }
-
-    return <Navigate to={redirectPath} replace />;
-
-}
+  return <Navigate to={redirectPath} replace />;
+};
