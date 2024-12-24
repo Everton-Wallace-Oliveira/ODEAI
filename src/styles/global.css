@@ -8,16 +8,14 @@
     padding: 0;
 }
 
-html{
-    font-size: 62.5%; 
-    
-    
-}
+/*html{*/
+/*    font-size: 62.5%; */
+/*    */
+/*    */
+/*}*/
 
 .background{
     background-image: linear-gradient(to right, #ecbb60, #1e5799, #96DADE);
-    
-
 }
 
 
@@ -133,3 +131,56 @@ html{
     padding: 8px;
     font-size: 14px;
   }
+
+.navbar-item {
+    font-size: 15px;
+}
+
+.navbar-brand {
+    font-size: 20px !important;
+}
+
+.depoimentos-body{
+    margin: 40px;
+}
+
+.depoimentos-title {
+    font-family: 'Poetsen One', sans-serif;
+    font-size: 30px;
+    color: #744344;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.depoimentos-details-title {
+    font-family: 'Poetsen One', sans-serif;
+    font-size: 30px;
+    color: #744344;
+    text-align: left;
+    margin-top: 20px;
+}
+
+
+.depoimentos-details-author{
+    font-family: 'Poetsen One', sans-serif;
+    font-size: 20px;
+    color: #6c6c6c;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.depoimentos-details-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.depoimentos-details-data{
+    align-self: self-start;
+    margin-top: 30px;
+}
+
+.depoimentos-details-descricao{
+    margin-bottom: 30px;
+}

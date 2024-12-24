@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./components/login/Login";
 import Cadastro from "./components/cadastro/Cadastro";
@@ -14,6 +13,8 @@ import PasswordResetRoute from "./components/recovery/PasswordResetRoute";
 import NewPlaces from "./components/admin/NewPlaces";
 import UpdatePlace from "./components/admin/UpdatePlace";
 import AdminHome from "./components/admin/AdminHome";
+import Depoimentos from "./components/home/Depoimentos.jsx";
+import DepoimentosDetails from "./components/home/DepoimentosDetails.jsx";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
       <Routes>
         <Route path="/home" element={<ProtectedRoute children={<Home />} />} />
         <Route path="/places" element={<ProtectedRoute children={<Places />} />} />
+        <Route path="/depoimentos" element={<ProtectedRoute children={<Depoimentos />} />} />
+        <Route path="/depoimentos-details" element={<ProtectedRoute children={<DepoimentosDetails />} />} />
         <Route path="/" element={<Login />} />
         <Route path="/admin" element={<ProtectedRoute redirectPath="/home" children={<AdminController />} adminOnly />} />
         <Route path="/admin/new-places" element={<ProtectedRoute redirectPath="/home" children={<NewPlaces />} adminOnly />} />
