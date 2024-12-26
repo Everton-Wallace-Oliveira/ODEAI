@@ -1,5 +1,5 @@
-import axios from "axios";
-import { USERS_ENDPOINT } from "../../constants/urls";
+import axios from 'axios';
+import { USERS_ENDPOINT } from '../../constants/urls';
 
 export function profiler(accessToken, updatedFields) {
   return new Promise((resolve, reject) => {
@@ -7,7 +7,7 @@ export function profiler(accessToken, updatedFields) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`,
-      }
+      },
     };
 
     axios

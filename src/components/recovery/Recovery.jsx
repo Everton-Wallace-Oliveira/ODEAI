@@ -1,42 +1,42 @@
-import { useNavigate } from 'react-router-dom'
-import { validateEmail } from '../../utils/validators'
-import { useState } from 'react'
-import AlertNotMatch from './AlertNotMatch'
-import { checkMail } from '../../services/users/checkMail'
+import { useNavigate } from 'react-router-dom';
+import { validateEmail } from '../../utils/validators';
+import { useState } from 'react';
+import AlertNotMatch from './AlertNotMatch';
+import { checkMail } from '../../services/users/checkMail';
 
 function Recovery() {
-  const navigate = useNavigate()
-  const [email, setEmail] = useState('')
-  const [showAlert, setShowAlert] = useState(false)
-  const [alertType, setAlertType] = useState('')
-  const [isError, setIsError] = useState(true)
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertType, setAlertType] = useState('');
+  const [isError, setIsError] = useState(true);
 
   const handleRecoveryClick = async () => {
     if (validateEmail(email)) {
       try {
-        await checkMail(email)
-        localStorage.setItem('emailRecovery', JSON.stringify(email))
-        localStorage.setItem('tokenValid', false)
-        navigate('/recoveryToken')
+        await checkMail(email);
+        localStorage.setItem('emailRecovery', JSON.stringify(email));
+        localStorage.setItem('tokenValid', false);
+        navigate('/recoveryToken');
       } catch (error) {
         if (error.status === 404) {
           if (error.data.error === 'User not found') {
-            setAlertType('E-mail não cadastrado')
+            setAlertType('E-mail não cadastrado');
           } else {
-            setAlertType('Erro desconhecido. Por favor, tente novamente.')
+            setAlertType('Erro desconhecido. Por favor, tente novamente.');
           }
         } else {
-          setAlertType('Erro desconhecido. Por favor, tente novamente.')
+          setAlertType('Erro desconhecido. Por favor, tente novamente.');
         }
-        setShowAlert(true)
-        setIsError(true)
+        setShowAlert(true);
+        setIsError(true);
       }
     } else {
-      setAlertType('Insira um e-mail válido')
-      setShowAlert(true)
-      setIsError(true)
+      setAlertType('Insira um e-mail válido');
+      setShowAlert(true);
+      setIsError(true);
     }
-  }
+  };
 
   return (
     <div>
@@ -72,7 +72,7 @@ function Recovery() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Recovery
+export default Recovery;

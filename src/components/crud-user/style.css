@@ -51,13 +51,13 @@ label {
   width: 140px;
 }
 
-.back-to-home-button{
+.back-to-home-button {
   display: flex;
   justify-content: center;
   margin: 10px 22px 20px 0;
-  width: unset; 
+  width: unset;
 }
 
 .back-to-home-button button {
-  width: 350px; 
+  width: 350px;
 }

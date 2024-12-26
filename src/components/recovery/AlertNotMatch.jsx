@@ -1,28 +1,28 @@
-import { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 function AlertNotMatch({ showAlert, alertType, onClose, isError }) {
   useEffect(() => {
     if (showAlert) {
       const timer = setTimeout(() => {
-        onClose()
-      }, 3000)
+        onClose();
+      }, 3000);
 
-      return () => clearTimeout(timer)
+      return () => clearTimeout(timer);
     }
-  }, [showAlert, onClose])
+  }, [showAlert, onClose]);
 
   if (!showAlert) {
-    return null
+    return null;
   }
 
   function handleAlertClose() {
-    onClose()
+    onClose();
   }
 
   const alertClass = isError
     ? 'alert alert-danger alert-dismissible alert-style'
-    : 'alert alert-success alert-dismissible alert-style'
+    : 'alert alert-success alert-dismissible alert-style';
 
   return (
     <div className="position-absolute end-0 p-5">
@@ -33,7 +33,7 @@ function AlertNotMatch({ showAlert, alertType, onClose, isError }) {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 AlertNotMatch.propTypes = {
@@ -41,6 +41,6 @@ AlertNotMatch.propTypes = {
   alertType: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   isError: PropTypes.bool.isRequired,
-}
+};
 
-export default AlertNotMatch
+export default AlertNotMatch;

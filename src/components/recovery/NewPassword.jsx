@@ -1,48 +1,48 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import AlertNotMatch from './AlertNotMatch'
-import { Eye, EyeOff } from 'lucide-react'
-import { modifyPassword } from '../../services/users/modifyPassword'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AlertNotMatch from './AlertNotMatch';
+import { Eye, EyeOff } from 'lucide-react';
+import { modifyPassword } from '../../services/users/modifyPassword';
 
 function NewPassword() {
-  const navigate = useNavigate()
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [showAlert, setShowAlert] = useState(false)
-  const [alertType, setAlertType] = useState('')
-  const [isError, setIsError] = useState(true)
-  const [showPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate();
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertType, setAlertType] = useState('');
+  const [isError, setIsError] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handlePasswords = async () => {
     if (password === '' || confirmPassword === '') {
-      setAlertType('É necessário preencher os dois campos')
-      setShowAlert(true)
-      setIsError(true)
-      return
+      setAlertType('É necessário preencher os dois campos');
+      setShowAlert(true);
+      setIsError(true);
+      return;
     }
     if (password !== confirmPassword) {
-      setAlertType('As senhas não coincidem')
-      setShowAlert(true)
-      setIsError(true)
-      return
+      setAlertType('As senhas não coincidem');
+      setShowAlert(true);
+      setIsError(true);
+      return;
     }
     try {
       const emailRecovery = localStorage
         .getItem('emailRecovery')
-        .replace(/(^"|"$)/g, '')
-      await modifyPassword(emailRecovery, password)
-      localStorage.removeItem('emailRecovery')
-      localStorage.removeItem('tokenValid')
-      navigate('/')
+        .replace(/(^"|"$)/g, '');
+      await modifyPassword(emailRecovery, password);
+      localStorage.removeItem('emailRecovery');
+      localStorage.removeItem('tokenValid');
+      navigate('/');
     } catch (error) {
-      setAlertType('Erro desconhecido. Por favor, tente novamente.')
-      setShowAlert(true)
+      setAlertType('Erro desconhecido. Por favor, tente novamente.');
+      setShowAlert(true);
     }
-  }
+  };
 
   const handleShowPassword = () => {
-    setShowPassword(!showPassword)
-  }
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div className="recoveryContainer backgroundLogin">
@@ -89,7 +89,7 @@ function NewPassword() {
         </button>
       </div>
     </div>
-  )
+  );
 }
 
-export default NewPassword
+export default NewPassword;

@@ -1,95 +1,95 @@
-import { useNavigate } from 'react-router-dom'
-import { useState, useRef, useEffect } from 'react'
-import AlertNotMatch from './AlertNotMatch'
-import { verifyToken } from '../../services/users/verifyToken'
-import { checkMail } from '../../services/users/checkMail'
+import { useNavigate } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
+import AlertNotMatch from './AlertNotMatch';
+import { verifyToken } from '../../services/users/verifyToken';
+import { checkMail } from '../../services/users/checkMail';
 
 function SendToken() {
-  const navigate = useNavigate()
-  const [tokens, setTokens] = useState(['', '', '', '', '', ''])
-  const inputRefs = useRef([])
-  const [showAlert, setShowAlert] = useState(false)
-  const [alertType, setAlertType] = useState('')
-  const [isError, setIsError] = useState(true)
-  const [timeLeft, setTimeLeft] = useState(120)
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true)
+  const navigate = useNavigate();
+  const [tokens, setTokens] = useState(['', '', '', '', '', '']);
+  const inputRefs = useRef([]);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertType, setAlertType] = useState('');
+  const [isError, setIsError] = useState(true);
+  const [timeLeft, setTimeLeft] = useState(120);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   useEffect(() => {
     if (timeLeft > 0) {
       const timer = setInterval(() => {
-        setTimeLeft((prevTime) => prevTime - 1)
-      }, 1000)
-      return () => clearInterval(timer)
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+      return () => clearInterval(timer);
     } else {
-      setIsButtonDisabled(false)
+      setIsButtonDisabled(false);
     }
-  }, [timeLeft])
+  }, [timeLeft]);
 
   const handleResendToken = () => {
     const emailRecovery = localStorage
       .getItem('emailRecovery')
-      .replace(/(^"|"$)/g, '')
-    checkMail(emailRecovery)
-    setAlertType(`Token reenviado para ${emailRecovery}`)
-    setShowAlert(true)
-    setIsError(false)
-    setTimeLeft(120)
-    setIsButtonDisabled(false)
-  }
+      .replace(/(^"|"$)/g, '');
+    checkMail(emailRecovery);
+    setAlertType(`Token reenviado para ${emailRecovery}`);
+    setShowAlert(true);
+    setIsError(false);
+    setTimeLeft(120);
+    setIsButtonDisabled(false);
+  };
 
   const handleToken = async () => {
-    const token = tokens.join('')
+    const token = tokens.join('');
     if (token.length < 6) {
-      setAlertType('O token deve conter 6 números')
-      setShowAlert(true)
-      setIsError(true)
-      return
+      setAlertType('O token deve conter 6 números');
+      setShowAlert(true);
+      setIsError(true);
+      return;
     }
     try {
-      await verifyToken(token)
-      localStorage.setItem('tokenValid', true)
-      navigate('/newPassword')
+      await verifyToken(token);
+      localStorage.setItem('tokenValid', true);
+      navigate('/newPassword');
     } catch (error) {
       if (error.status === 400) {
         if (error.data.message === 'Invalid token!') {
-          setAlertType('Token inválido')
+          setAlertType('Token inválido');
         } else if (error.data.message === 'Expired token!') {
-          setAlertType('Token expirado, reenvie-o novamente')
+          setAlertType('Token expirado, reenvie-o novamente');
         } else {
-          setAlertType('Erro desconhecido. Por favor, tente novamente.')
+          setAlertType('Erro desconhecido. Por favor, tente novamente.');
         }
-        setShowAlert(true)
-        setIsError(true)
+        setShowAlert(true);
+        setIsError(true);
       } else {
-        setAlertType('Erro desconhecido. Por favor, tente novamente.')
-        setShowAlert(true)
-        setIsError(true)
+        setAlertType('Erro desconhecido. Por favor, tente novamente.');
+        setShowAlert(true);
+        setIsError(true);
       }
     }
-  }
+  };
 
   const handleChangeDigit = (index, digit) => {
     if (/^\d?$/.test(digit)) {
-      const newTokens = [...tokens]
-      newTokens[index] = digit
-      setTokens(newTokens)
+      const newTokens = [...tokens];
+      newTokens[index] = digit;
+      setTokens(newTokens);
       if (digit && index < 5) {
-        inputRefs.current[index + 1].focus()
+        inputRefs.current[index + 1].focus();
       }
     }
-  }
+  };
 
   const handleKeyDown = (index, digit) => {
     if (digit.key === 'Backspace' && !tokens[index] && index > 0) {
-      inputRefs.current[index - 1].focus()
+      inputRefs.current[index - 1].focus();
     }
-  }
+  };
 
   const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60)
-    const secs = seconds % 60
-    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`
-  }
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  };
 
   return (
     <div>
@@ -138,7 +138,7 @@ function SendToken() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SendToken
+export default SendToken;
