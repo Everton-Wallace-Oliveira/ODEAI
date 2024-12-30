@@ -16,37 +16,28 @@ import '../../styles/login.css';
 
 function Login() {
   return (
-    // <AlertTypeProvider>
-    // <AlertProvider>
     <>
-      <Alert></Alert>
-      <div className="mainContainer backgroundLogin">
-        <div className="loginContainer">
-          <h1 className="title">SALVATOUR</h1>
+      <Alert />
+      <div className="page-login">
+        <div className="mainContainer">
+          <div className="loginContainer">
+            <h1 className="title">Onda ODEAI</h1>
 
-          <LoginProvider>
-            <Form></Form>
+            <LoginProvider>
+              <Form />
 
-            <Link className="links" to="/recovery">
-              Esqueci minha senha
-            </Link>
-
-            <Button></Button>
-
-            <p className="text-cadastro">
-              Ainda não possui acesso?
-              <Link className="link-cadastro" to="/cadastro">
-                {' '}
-                Cadastre-se
+              <Link className="links" to="/recovery">
+                Esqueci minha senha
               </Link>
-            </p>
-          </LoginProvider>
+
+              <Button />
+            </LoginProvider>
+          </div>
         </div>
       </div>
     </>
-    // </AlertProvider>
-    // </AlertTypeProvider>
   );
 }
+
 
 export default Login;
