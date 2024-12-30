@@ -1,35 +1,8 @@
-.cabecalho {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  padding: 10px;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  color: #2d2a2a;
-  height: 40px;
-  border-bottom: 2px solid rgb(146, 143, 143);
-}
-
 .text-date,
 .text-ola,
 .text-editar {
   font-family: 'Poetsen One', 'sans-serif';
   font-size: 14px;
-}
-
-.text-ola {
-  border: none;
-  background-color: rgba(255, 255, 255, 0);
-  color: #2d2a2a;
-}
-
-.text-editar {
-  text-decoration: none;
-  color: #6b4821;
-}
-
-.text-editar:hover {
-  color: #ad8a61;
 }
 
 .mainTitle {
@@ -81,7 +54,7 @@
   background-color: #2d2a2a25;
 
   height: 40px !important;
-  color: black !important;
+  /* color: black !important; */
 }
 
 .carousel-control-next-icon {
