@@ -33,7 +33,7 @@ function App() {
           path="/depoimentos-details"
           element={<ProtectedRoute children={<DepoimentosDetails />} />}
         />
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/admin"
           element={
