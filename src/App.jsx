@@ -11,6 +11,8 @@ import NewPassword from './components/recovery/NewPassword';
 import PasswordResetRoute from './components/recovery/PasswordResetRoute';
 import Depoimentos from './components/home/Depoimentos.jsx';
 import DepoimentosDetails from './components/home/DepoimentosDetails.jsx';
+import Places from './components/home/Places';
+
 
 
 function App() {
@@ -29,6 +31,10 @@ function App() {
         path="/depoimentos-details"
         element={<DepoimentosDetails />}
       />
+        <Route
+          path="/places"
+          element={<Places  />}
+        />
 
         {/* Rotas administrativas protegidas */}
         <Route
