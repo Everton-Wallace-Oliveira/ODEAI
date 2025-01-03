@@ -7,7 +7,7 @@ function OndaNavbar() {
   return (
     <Navbar expand="lg" className="onda-navbar">
       <Container>
-        <Navbar.Brand className="navbar-brand">
+        <Navbar.Brand href="/home" className="navbar-brand">
           Onda
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
