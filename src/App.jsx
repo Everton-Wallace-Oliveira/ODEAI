@@ -7,6 +7,11 @@ import NewPlaces from './components/admin/NewPlaces';
 import UpdatePlace from './components/admin/UpdatePlace';
 import AdminHome from './components/admin/AdminHome';
 import { ProtectedRoute } from './routing/ProtectedRoute';
+import NewPassword from './components/recovery/NewPassword';
+import PasswordResetRoute from './components/recovery/PasswordResetRoute';
+import Depoimentos from './components/home/Depoimentos.jsx';
+import DepoimentosDetails from './components/home/DepoimentosDetails.jsx';
+
 
 function App() {
   return (
@@ -16,6 +21,14 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route
+        path="/depoimentos"
+        element={<Depoimentos />}
+      />
+      <Route
+        path="/depoimentos-details"
+        element={<DepoimentosDetails />}
+      />
 
         {/* Rotas administrativas protegidas */}
         <Route
@@ -48,6 +61,16 @@ function App() {
             <ProtectedRoute redirectPath="/login" adminOnly>
               <AdminHome />
             </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/newPassword"
+          element={
+            <PasswordResetRoute
+              element={<NewPassword />}
+              routeName="newPassword"
+            />
           }
         />
 
