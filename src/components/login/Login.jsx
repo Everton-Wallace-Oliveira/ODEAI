@@ -5,6 +5,8 @@ import Alert from './Alert.jsx';
 import { Link } from 'react-router-dom';
 import '../../styles/global.css';
 import '../../styles/login.css';
+import OndaNavbar from '../navbar/OndaNavbar.jsx';
+
 
 /**
  * Componente Login
@@ -17,6 +19,9 @@ import '../../styles/login.css';
 function Login() {
   return (
     <>
+      {/*<Header></Header>*/}
+      <OndaNavbar></OndaNavbar>
+
       <Alert />
       <div className="page-login">
         <div className="mainContainer">
