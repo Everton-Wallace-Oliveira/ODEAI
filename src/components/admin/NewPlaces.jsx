@@ -88,11 +88,11 @@ export default function NewPlaces() {
     <>
       <Alert></Alert>
       <Header />
-      <div className="background mainContainerPlaces">
+      <div className="background mainContainerTestmonials">
         <form className="subcontainer" onSubmit={handleSubmit}>
-          <h1 className="placeTitle">Cadastro de pontos turísticos</h1>
+          
 
-          <h3 className="titlePlaces">Título</h3>
+          <h3 className="titleTestmonials">Título</h3>
           <input
             className="inputTitle"
             type="text"
@@ -101,7 +101,7 @@ export default function NewPlaces() {
             onChange={handleChange}
           />
 
-          <h3 className="titlePlaces">Endereço</h3>
+          <h3 className="titleTestmonials">Nome(a) do Entrevistador(a)</h3>
           <input
             className="inputTitle"
             type="text"
@@ -110,7 +110,7 @@ export default function NewPlaces() {
             onChange={handleChange}
           />
 
-          <h3 className="titlePlaces">Horário de funcionamento</h3>
+          <h3 className="titleTestmonials">Nome(a) do Entrevistado(a)</h3>
           <input
             className="inputTitle"
             type="text"
@@ -119,7 +119,7 @@ export default function NewPlaces() {
             onChange={handleChange}
           />
 
-          <h3 className="titlePlaces">Descrição</h3>
+          <h3 className="titleTestmonials">Depoimento</h3>
           <textarea
             className="inputDesc"
             name="desc"
@@ -127,7 +127,7 @@ export default function NewPlaces() {
             onChange={handleChange}
           />
 
-          <h3 className="titlePlaces">Imagem do ponto turístico</h3>
+          <h3 className="titleTestmonials">Imagens</h3>
           {image && (
             <img
               className="imagem"
@@ -142,9 +142,18 @@ export default function NewPlaces() {
             onChange={handleImageChange}
           />
 
+          <div className="container-upload">
           <button className="button cadastrar" type="submit">
-            Cadastrar
+            Upload
           </button>
+          </div>
+          <div className="container-buttons2"></div>
+          <div className="container2buttons">
+          <div className="action-buttons">
+        <button className="cancel-button" type="button">Cancelar</button>
+        <button className="confirm-button" type="submit">Confirmar</button>
+      </div>
+          </div>
         </form>
       </div>
     </>
