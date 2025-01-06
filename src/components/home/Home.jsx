@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/global.css';
 import '../../styles/home.css';
 import OndaNavbar from '../navbar/OndaNavbar.jsx';
+import Footer from './Footer.jsx';
 
 /**
  * Componente Home
@@ -31,6 +32,7 @@ function Home() {
         </section>
       </main>
     </div>
+    <Footer></Footer>
     </>
   );
 }
