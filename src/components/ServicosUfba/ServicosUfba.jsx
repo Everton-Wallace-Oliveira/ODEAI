@@ -1,5 +1,5 @@
 import React from "react";
-import "./ServicosUfba.css";
+import '../../styles/ServicosUfba.css';
 
 function ServicosUfba() {
   return (
