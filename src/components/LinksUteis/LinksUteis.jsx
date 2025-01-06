@@ -1,5 +1,5 @@
 import React from "react";
-import "./LinksUteis.css";
+import '../../styles/LinksUteis.css';
 
 function LinksUteis() {
   return (
