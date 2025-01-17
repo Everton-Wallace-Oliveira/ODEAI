@@ -12,8 +12,8 @@ import PasswordResetRoute from './components/recovery/PasswordResetRoute';
 import Depoimentos from './components/home/Depoimentos.jsx';
 import DepoimentosDetails from './components/home/DepoimentosDetails.jsx';
 import Places from './components/home/Places';
-import LinksUteis from './components/LinksUteis';
-import ServicosUfba from './components/ServicosUfba';
+import LinksUteis from './components/linksuteis/LinksUteis';
+import ServicosUfba from './components/servicosufba/ServicosUfba';
 
 
 function App() {
