@@ -18,3 +18,10 @@ export const ProtectedRoute = ({
 
   return <Navigate to={redirectPath} replace />;
 };
+
+
+
+
+
+
+      
