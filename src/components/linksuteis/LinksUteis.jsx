@@ -1,16 +1,15 @@
 import React from 'react';
 import '../../styles/global.css';
-import '../../styles/home.css';
 import '../../styles/linksuteis.css';
 import OndaNavbar from '../navbar/OndaNavbar.jsx';
 
 function LinksUteis() {
   return (
-    <div className="container">
+    <>
       <OndaNavbar />
-
-      <main>
-        <h2>Links Úteis</h2>
+      <div className="layout">
+        <h1 className="mainTitle">Links Úteis</h1>
+        <p className="subtitle">Encontre aqui alguns os links importantes.</p>
         <div className="links-section">
           <h3>Documentação Importante</h3>
           <a
@@ -39,8 +38,8 @@ function LinksUteis() {
             Moodle UFBA
           </a>
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -1,76 +1,168 @@
-.mainContainerPlaces {
+/* InsercaoDepoimento.css adaptado para Testmonials */
+
+* {
+  box-sizing: border-box;
+}
+
+.background {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  margin: auto;
   justify-content: center;
-  align-items: center;
+  padding: 20px;
+  background-color: #f8f4ef;
+  min-height: 90vh;
+}
+
+.mainContainerTestmonials {
+  max-width: 800px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
 }
 
 .subcontainer {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff6c;
-  height: 100%;
-  width: 60%;
-  padding: 10px;
-  border-radius: 10px;
-  align-items: center;
+  gap: 20px;
 }
 
-.placeTitle,
-.titlePlaces,
-.inputTitle,
-.inputDesc {
-  font-family: 'Poetsen One', sans-serif;
-}
-
-.titlePlaces {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.inputTitle,
-.inputDesc {
-  font-size: 1.2rem;
-  border: 2px solid var(--cor_2, #d76a00);
+.testmonialTitle {
+  font-size: 24px;
+  color: #5a4526;
   margin-bottom: 10px;
+  text-align: center;
 }
 
-.inputTitle:focus,
-.inputDesc:focus {
-  outline: none;
-}
-
-.placeTitle {
-  margin-top: 40px;
-  margin-bottom: 40px;
+.titleTestmonials {
+  font-size: 18px;
+  color: #5a4526;
 }
 
 .inputTitle,
 .inputDesc {
-  width: 90%;
-  padding: 10px;
-  border-radius: 15px;
-  margin-bottom: 10px;
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .inputDesc {
   height: 100px;
+  resize: vertical;
 }
 
 .inputFile {
-  border-radius: 15px;
   padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f4ef;
 }
 
-.inputTitle,
-.inputDesc,
-.inputFile {
-  margin-bottom: 5vh;
+.imagem {
+  width: 100%;
+  max-width: 300px;
+  min-height: 300px;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Buttons.css */
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .cadastrar {
-  padding: 8px;
+  background-color: #E9DCC4;
+  box-shadow: none;
+  padding: 10px;
+  color: #583B05;
+  width: 150px;
+  height: 40px;
+}
+
+.container-upload {
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: right;
+}
+
+.upload-button {
+  background-color: #e6d4b8;
+  color: #5a4526;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.upload-button:hover {
+  background-color: #d4c8b2;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+}
+
+.cancel-button {
+  background-color: #f5f5f5;
+  color: #5a4526;
+  padding: 5px 25px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cancel-button:hover {
+  background-color: #e0e0e0;
+}
+
+.confirm-button {
+  background-color: #5a4526;
+  color: #fff;
+  padding: 5px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.confirm-button:hover {
+  background-color: #4a3920;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .cancel-button,
+  .confirm-button {
+    width: 100%;
+  }
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .subcontainer {
+    gap: 15px;
+  }
+
+  .button {
+    width: 100%;
+  }
 }
