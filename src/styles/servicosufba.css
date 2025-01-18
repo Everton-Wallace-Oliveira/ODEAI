@@ -1,9 +1,6 @@
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
+  font-family: 'Poetsen One', sans-serif;
 }
 
 .container {
@@ -24,6 +21,28 @@ body {
 .header h1 {
   font-size: 24px;
   margin: 0;
+}
+
+.links-section {
+  margin-top: 20px;
+}
+
+.links-section h3 {
+  margin-bottom: 8px;
+  color: #4d3e2a;
+}
+
+.links-section a {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.links-section a:hover {
+  text-decoration: underline;
+  color: #0056b3;
 }
 
 .header ul {
@@ -58,27 +77,4 @@ main h2 {
 main p {
   line-height: 1.6;
   margin-bottom: 16px;
-}
-
-/* Estilo para a seção de links */
-.links-section {
-  margin-top: 20px;
-}
-
-.links-section h3 {
-  margin-bottom: 8px;
-  color: #4d3e2a;
-}
-
-.links-section a {
-  display: block;
-  color: #007bff;
-  text-decoration: none;
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
-.links-section a:hover {
-  text-decoration: underline;
-  color: #0056b3;
 }
