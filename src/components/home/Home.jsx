@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
 import '../../styles/global.css';
 import '../../styles/home.css';
 import OndaNavbar from '../navbar/OndaNavbar.jsx';
-import Footer from './Footer.jsx';
+import Footer from '../footer/Footer.jsx';
 
 /**
  * Componente Home
@@ -36,8 +35,5 @@ function Home() {
     </>
   );
 }
-
-
-
 
 export default Home;
