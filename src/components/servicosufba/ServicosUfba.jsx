@@ -1,14 +1,17 @@
 import React from 'react';
+import '../../styles/global.css';
 import '../../styles/servicosufba.css';
 import OndaNavbar from '../navbar/OndaNavbar.jsx';
 
 function ServicosUfba() {
   return (
-    <div className="container">
+    <>
       <OndaNavbar />
-
-      <main>
-        <h2>Serviços UFBA</h2>
+      <div className="layout">
+        <h1 className="mainTitle">Serviços UFBA</h1>
+        <p className="subtitle">
+          Aqui estão serviços importantes oferecidos pela UFBA.
+        </p>
         <div className="links-section">
           <h3>Atendimento Acadêmico</h3>
           <a
@@ -37,8 +40,8 @@ function ServicosUfba() {
             Portal do Aluno
           </a>
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
 
