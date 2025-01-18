@@ -16,10 +16,10 @@ function OndaNavbar() {
             <Nav.Link href="/depoimentos" className="navbar-item">
               Depoimentos
             </Nav.Link>
-            <Nav.Link href="#link" className="navbar-item">
+            <Nav.Link href="/links-uteis" className="navbar-item">
               Links Úteis
             </Nav.Link>
-            <Nav.Link href="#link" className="navbar-item">
+            <Nav.Link href="/servicos-ufba" className="navbar-item">
               Serviços UFBA
             </Nav.Link>
           </Nav>
