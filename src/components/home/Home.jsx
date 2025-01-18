@@ -8,6 +8,7 @@ import Image5 from '../../assets/image5.webp';
 import '../../styles/global.css';
 import '../../styles/home.css';
 import OndaNavbar from '../navbar/OndaNavbar.jsx';
+import Footer from '../footer/Footer.jsx';
 
 /**
  * Componente Home
@@ -46,6 +47,8 @@ function Home() {
           </Link>
         </button>
       </section>
+      <Footer></Footer>
+
     </>
   );
 }
