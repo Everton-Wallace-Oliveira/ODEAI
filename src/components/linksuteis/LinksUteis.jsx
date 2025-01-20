@@ -2,6 +2,7 @@ import React from 'react';
 import '../../styles/global.css';
 import '../../styles/linksuteis.css';
 import OndaNavbar from '../navbar/OndaNavbar.jsx';
+import Footer from '../footer/Footer.jsx';
 
 function LinksUteis() {
   return (
@@ -39,6 +40,7 @@ function LinksUteis() {
           </a>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }
