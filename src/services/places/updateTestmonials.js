@@ -3,31 +3,33 @@ import { UPDATE_PLACE_ENDPOINT } from '../../constants/urls';
 
 export function updatePlace(
   id,
-  name,
-  address,
-  openingHours,
+  title,
+  nameInterviewed,
+  interviewerName,
   description,
   image,
   accessToken
 ) {
   let objToSubmit = {
-    name: name,
-    address: address,
-    openingHours: openingHours,
+    title: title,
+    nameInterviewed: nameInterviewed,
+    interviewerName: interviewerName,
     description: description,
+    date: new Date().toISOString(), 
   };
+
   objToSubmit = image ? { ...objToSubmit, image: image } : objToSubmit;
 
   return new Promise((resolve, reject) => {
-    const header = {
+    const headers = {
       headers: {
-        'Content-type': 'multipart/form-data',
+        'Content-type': 'application/json', 
         Authorization: `Bearer ${accessToken}`,
       },
     };
 
     axios
-      .patch(`${UPDATE_PLACE_ENDPOINT}${id}`, objToSubmit, header)
+      .patch(`${UPDATE_PLACE_ENDPOINT}${id}`, objToSubmit, headers) 
       .then((response) => {
         console.log(response);
         resolve(response.data);

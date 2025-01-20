@@ -3,18 +3,24 @@ import Alert from '../login/Alert';
 import { AlertContext } from '../../contexts/alertContext';
 import { AlertTypeContext } from '../../contexts/alertTypeContext';
 import { AlertColorContext } from '../../contexts/alertColorContext';
-import { registerPlace } from '../../services/places/registerPlace';
+import { registerTestimonials } from '../../services/places/registerTestmonials';
 import Header from '../home/Header';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/global.css';
-import '../../styles/new_places.css';
+import '../../styles/testmonials.css';
+
+import { useState, useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AlertContext, AlertTypeContext, AlertColorContext } from './contexts'; 
+import { registerPlace } from './api'; 
+import Alert from './Alert'; 
+import Header from './Header'; 
 
 const initialFormState = {
   title: '',
-  desc: '',
-  image: '',
-  endereco: '',
-  horario: '',
+  nameInterviewed: '',
+  interviewerName: '',
+  description: '',
 };
 
 export default function NewPlaces() {
@@ -45,7 +51,11 @@ export default function NewPlaces() {
   function handleImageChange(event) {
     const file = event.target.files[0];
     if (file) {
-      setImage(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   }
 
@@ -53,31 +63,28 @@ export default function NewPlaces() {
     event.preventDefault();
     console.log(form);
 
-    if (form.title && form.desc && form.endereco && form.horario && image) {
-      registerPlace(
-        form.title,
-        form.endereco,
-        form.horario,
-        form.desc,
-        image,
-        token
-      )
-        .then((data) => {
+    if (form.title && form.nameInterviewed && form.interviewerName && form.description && image) {
+      const data = {
+        title: form.title,
+        nameInterviewed: form.nameInterviewed,
+        interviewerName: form.interviewerName,
+        description: form.description,
+        date: new Date().toISOString(),
+        image: image
+      };
+
+      registerTestimonials(data, token)
+        .then(() => {
           handleAlert(true, 'Cadastro realizado com sucesso', 'success');
-          setForm(initialFormState); // Redefinir o formulário
+          setForm(initialFormState); 
           if (fileInputRef.current) {
-            fileInputRef.current.value = ''; // Redefinir o campo de entrada de arquivo
+            fileInputRef.current.value = ''; 
           }
           navigate(-1);
         })
         .catch((error) => {
-          handleAlert(
-            true,
-            'Algum erro ocorreu durante o cadastro, tente novamente',
-            'danger'
-          );
-
-          console.log(error.response.status);
+          handleAlert(true, 'Algum erro ocorreu durante o cadastro, tente novamente', 'danger');
+          console.log(error.response?.status);
         });
     } else {
       handleAlert(true, 'Preencha todos os campos', 'danger');
@@ -86,12 +93,10 @@ export default function NewPlaces() {
 
   return (
     <>
-      <Alert></Alert>
+      <Alert />
       <Header />
       <div className="background mainContainerTestmonials">
         <form className="subcontainer" onSubmit={handleSubmit}>
-          
-
           <h3 className="titleTestmonials">Título</h3>
           <input
             className="inputTitle"
@@ -105,8 +110,8 @@ export default function NewPlaces() {
           <input
             className="inputTitle"
             type="text"
-            name="endereco"
-            value={form.endereco}
+            name="interviewerName"
+            value={form.interviewerName}
             onChange={handleChange}
           />
 
@@ -114,16 +119,16 @@ export default function NewPlaces() {
           <input
             className="inputTitle"
             type="text"
-            name="horario"
-            value={form.horario}
+            name="nameInterviewed"
+            value={form.nameInterviewed}
             onChange={handleChange}
           />
 
           <h3 className="titleTestmonials">Depoimento</h3>
           <textarea
             className="inputDesc"
-            name="desc"
-            value={form.desc}
+            name="description"
+            value={form.description}
             onChange={handleChange}
           />
 
@@ -131,7 +136,7 @@ export default function NewPlaces() {
           {image && (
             <img
               className="imagem"
-              src={URL.createObjectURL(image)}
+              src={image}
               alt={form.title}
             />
           )}
@@ -143,16 +148,15 @@ export default function NewPlaces() {
           />
 
           <div className="container-upload">
-          <button className="button cadastrar" type="submit">
-            Upload
-          </button>
+            <button className="button cadastrar" type="submit">
+              Upload
+            </button>
           </div>
-          <div className="container-buttons2"></div>
-          <div className="container2buttons">
-          <div className="action-buttons">
-        <button className="cancel-button" type="button">Cancelar</button>
-        <button className="confirm-button" type="submit">Confirmar</button>
-      </div>
+          <div className="container-buttons2">
+            <div className="action-buttons">
+              <button className="cancel-button" type="button">Cancelar</button>
+              <button className="confirm-button" type="submit">Confirmar</button>
+            </div>
           </div>
         </form>
       </div>

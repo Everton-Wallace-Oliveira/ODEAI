@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getAllPlaces } from '../../services/places/getAllPlaces';
-import { deletePlace } from '../../services/places/deletePlace';
+import { getAllPlaces } from '../../services/places/getAllTestmonials';
+import { deletePlace } from '../../services/places/deleteTestmonials';
 import { useNavigate } from 'react-router-dom';
 /**
  * Componente Carousel
