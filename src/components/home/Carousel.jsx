@@ -1,47 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import { getAllPlaces } from '../../services/places/getAllPlaces';
-import { deletePlace } from '../../services/places/deletePlace';
+import { getAllTestimonials } from '../../services/testimonials/getAllTestimonials';
+import { deleteTestimonials } from '../../services/testimonials/deleteTestimonials';
 import { useNavigate } from 'react-router-dom';
 /**
  * Componente Carousel
  *
- * Este componente representa o Carousel exibido na página Places.
+ * Este componente representa o Carousel exibido na página Testimonals.
  *
  */
 
 export default function Carousel() {
   const navigate = useNavigate();
 
-  const [listPlaces, setListPlaces] = useState([]);
+  const [listTestimonials, setListTestimonials] = useState([]);
   const token = localStorage.getItem('token');
   const isAdmin = localStorage.getItem('isAdmin') == 'true';
 
   useEffect(() => {
-    setPlaces();
+    setTestimonials();
   }, []);
 
-  function setPlaces() {
-    getAllPlaces(token)
+  function setTestimonials() {
+    getAllTestimonials(token)
       .then((data) => {
         console.log(data);
-        setListPlaces(data);
+        setListTestimonials(data);
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  function editPlace(place) {
-    localStorage.setItem('update-place', JSON.stringify(place));
-    navigate('/admin/update-place');
+  function editTestimonials(testimonial) {
+    localStorage.setItem('update-testimonials', JSON.stringify(testimonial));
+    navigate('/admin/update-testimonials');
   }
 
-  function removePlace(id) {
+  function removeTestimonials(id) {
     const confirm = window.confirm(
       'Tem certeza de que deseja remover esta atração?'
     );
     if (confirm) {
-      deletePlace(id, token)
+      deleteTestimonials(id, token)
         .then((data) => {
           window.location.reload();
         })
@@ -54,17 +54,17 @@ export default function Carousel() {
   return (
     <section className="carousel slide" id="carousel">
       <div className="carousel-inner">
-        {listPlaces &&
-          listPlaces.map((place, index) => (
+        {listTestimonials &&
+          listTestimonials.map((testimonial, index) => (
             <div
               key={index}
               className={
                 'carousel-item section' + (index == 0 ? ' active' : '')
               }
             >
-              <h1 className="mainTitle">{place.name}</h1>
-              <img className="imagem" src={place.image} alt={place.name} />
-              <p className="descricao">{place.description}</p>
+              <h1 className="mainTitle">{testimonial.name}</h1>
+              <img className="imagem" src={testimonial.image} alt={testimonial.name} />
+              <p className="descricao">{testimonial.description}</p>
               <button
                 className="btn-info"
                 data-bs-toggle="modal"
@@ -77,7 +77,7 @@ export default function Carousel() {
                   <button
                     className="btn-info"
                     data-bs-toggle="modal"
-                    onClick={() => editPlace(place)}
+                    onClick={() => editTestimonials(testimonial)}
                   >
                     Editar informações
                   </button>
@@ -88,38 +88,12 @@ export default function Carousel() {
                   <button
                     className="btn-remove"
                     data-bs-toggle="modal"
-                    onClick={() => removePlace(place._id)}
+                    onClick={() => removeTestimonials(testimonial._id)}
                   >
                     Remover atração
                   </button>
                 </div>
               )}
-              <div className="modal" id={`modal${index}`} tabIndex="-1">
-                <div className="modal-dialog">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h3 className="modal-title">
-                        Endereço e horário de funcionamento
-                      </h3>
-                      <button
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                      ></button>
-                    </div>
-                    <div className="modal-body text-start">
-                      <h4>
-                        <strong>Endereço:</strong>
-                        {place.address}
-                      </h4>
-                      <br></br>
-                      <h4>
-                        <strong>Horário de funcionamento:</strong>
-                        {place.openingHours}
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           ))}
 

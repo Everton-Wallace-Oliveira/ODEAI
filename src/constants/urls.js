@@ -1,5 +1,4 @@
-export const BACKEND_URL = 'https://back.matc84.tauane.artadevs.tech/';
-//export const BACKEND_URL = 'http://localhost:3000/'
+export const BACKEND_URL = 'http://localhost:3000/'
 
 export const USERS_ENDPOINT = BACKEND_URL + 'user/';
 
@@ -15,10 +14,10 @@ export const VERIFY_TOKEN_ENDPOINT = BACKEND_URL + 'auth/verify-token/';
 
 export const MODIFY_PASSWORD_ENDPOINT = BACKEND_URL + 'auth/modify-password/';
 
-export const NEW_PLACE_ENDPOINT = BACKEND_URL + 'touristAttraction/create/';
+export const NEW_TESTIMONIAL_ENDPOINT = BACKEND_URL + 'testimonials/create/';
 
-export const UPDATE_PLACE_ENDPOINT = BACKEND_URL + 'touristAttraction/';
+export const UPDATE_TESTIMONIAL_ENDPOINT = BACKEND_URL + 'testimonials/';
 
-export const DELETE_PLACE_ENDPOINT = BACKEND_URL + 'touristAttraction/';
+export const DELETE_TESTIMONIAL_ENDPOINT = BACKEND_URL + 'testimonials/';
 
-export const ALL_PLACES_ENDPOINT = BACKEND_URL + 'touristAttraction/all/';
+export const ALL_TESTIMONIALS_ENDPOINT = BACKEND_URL + 'testimonials/all/';

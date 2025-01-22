@@ -1,0 +1,44 @@
+.onda-navbar {
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    max-height: 15vh;
+
+  
+  }
+  
+  .navbar-brand {
+    font-family: 'Poetsen One', sans-serif;
+    color: #ffffff !important; 
+    margin-right: 20px;
+    background-color: #533132;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+  }
+  
+  
+  .navbar-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navbar-item {
+    font-size: 18px;
+    color: #744344;
+    text-decoration: none;
+  }
+  
+  .navbar-item-adm {
+    font-size: 15px !important;
+    color: #744344;
+  }
+  
+  .navbar-item:hover,
+  .navbar-item-adm:hover {
+    color: #6b4821;
+    text-decoration: underline;
+  }
+  

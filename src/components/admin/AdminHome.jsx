@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../../styles/home_admin.css';
-import OndaNavbar from '../navbar/OndaNavbar.jsx';
 
 export default function AdminHome() {
   return (
     <>
       {/*<Header></Header>*/}
-      <OndaNavbar></OndaNavbar>
-
       <div className="container">
         <section className="section1">
           <button className="button">
@@ -16,13 +13,13 @@ export default function AdminHome() {
             </Link>
           </button>
           <button className="button">
-            <Link to="/admin/new-places" className="link-ver">
-              Cadastrar pontos turísticos
+            <Link to="/admin/new-testimonials" className="link-ver">
+              Cadastrar depoimentos
             </Link>
           </button>
           <button className="button">
             <Link to="/home" className="link-ver">
-              Ver pontos turísticos
+              ONDA ODEAI
             </Link>
           </button>
         </section>

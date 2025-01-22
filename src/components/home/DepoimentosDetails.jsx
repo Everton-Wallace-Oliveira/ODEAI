@@ -53,7 +53,7 @@ function DepoimentosDetails() {
             volutpat quis placerat a, tristique quis quam. Cras pretium neque at
             congue dictum. Vivamus quis risus non ante feugiat dignissim vitae
             non diam. Aliquam massa elit, tristique a velit in, accumsan
-            bibendum dui.
+            bibendum dui
           </p>
         </div>
 

@@ -1,0 +1,49 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.mainTitle {
+  font-family: 'Poetsen One', 'sans-serif';
+  font-size: 32px;
+  color: #2d2a2a;
+  margin-top: 20px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.links-section h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.links-section a {
+  text-decoration: none;
+  color: #1e5799;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.links-section a:hover {
+  color: #ecbb60;
+}

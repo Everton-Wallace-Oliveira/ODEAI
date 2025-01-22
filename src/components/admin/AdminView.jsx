@@ -303,13 +303,12 @@ export default function Admin({
               <FormControl
                 variant="outlined"
                 style={{ width: '100%' }}
-                helperText={passwordHelperText}
-                error={passwordHelperText != ''}
+                error={passwordHelperText !== ''}
               >
                 <InputLabel htmlFor="password">Senha</InputLabel>
                 <OutlinedInput
                   id="password"
-                  type="password"
+                  type={showPassword ? 'text' : 'password'} 
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                   required
@@ -318,18 +317,16 @@ export default function Admin({
                       <IconButton
                         aria-label="toggle password visibility"
                         onClick={() => setShowPassword(!showPassword)}
-                        onMouseDown={(event) => event.preventDefault}
+                        onMouseDown={(event) => event.preventDefault()} 
                         edge="end"
                       >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>
                     </InputAdornment>
                   }
-                  label="Password"
+                  label="Senha"
                 />
-                <FormHelperText id="password">
-                  {passwordHelperText}
-                </FormHelperText>
+                <FormHelperText>{passwordHelperText}</FormHelperText>
               </FormControl>
 
               <br />

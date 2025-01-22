@@ -5,6 +5,8 @@ import Alert from './Alert.jsx';
 import { Link } from 'react-router-dom';
 import '../../styles/global.css';
 import '../../styles/login.css';
+import OndaNavbar from '../navbar/OndaNavbar.jsx';
+
 
 /**
  * Componente Login
@@ -16,37 +18,31 @@ import '../../styles/login.css';
 
 function Login() {
   return (
-    // <AlertTypeProvider>
-    // <AlertProvider>
     <>
-      <Alert></Alert>
-      <div className="mainContainer backgroundLogin">
-        <div className="loginContainer">
-          <h1 className="title">SALVATOUR</h1>
+      {/*<Header></Header>*/}
+      <OndaNavbar></OndaNavbar>
 
-          <LoginProvider>
-            <Form></Form>
+      <Alert />
+      <div className="page-login">
+        <div className="mainContainer">
+          <div className="loginContainer">
+            <h1 className="title">Onda ODEAI</h1>
 
-            <Link className="links" to="/recovery">
-              Esqueci minha senha
-            </Link>
+            <LoginProvider>
+              <Form />
 
-            <Button></Button>
-
-            <p className="text-cadastro">
-              Ainda não possui acesso?
-              <Link className="link-cadastro" to="/cadastro">
-                {' '}
-                Cadastre-se
+              <Link className="links" to="/recovery">
+                Esqueci minha senha
               </Link>
-            </p>
-          </LoginProvider>
+
+              <Button />
+            </LoginProvider>
+          </div>
         </div>
       </div>
     </>
-    // </AlertProvider>
-    // </AlertTypeProvider>
   );
 }
+
 
 export default Login;
