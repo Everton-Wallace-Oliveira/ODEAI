@@ -1,4 +1,11 @@
-.layout {
+
+.servicos-ufba .page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;  /* altura da tela */
+  flex: 1;
+}
+.servicos-ufba .layout {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,25 +13,29 @@
   width: 90%;
   max-width: 1200px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 39px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: none;
+  flex: 1;
 }
 
-.mainTitle {
-  font-family: 'Poetsen One', 'sans-serif';
+.servicos-ufba .mainTitle {
+  font-family: Poetsen One, sans-serif;
   font-size: 32px;
-  color: #2d2a2a;
+  color: #533132;
   margin-top: 20px;
 }
 
-.subtitle {
+.links-uteis .subtitle,
+.servicos-ufba .subtitle {
   font-size: 18px;
-  color: #555;
+  color: #5a4526;
   margin-bottom: 20px;
 }
 
+
+/* Seção de links */
 .links-section {
   display: flex;
   flex-direction: column;
@@ -33,7 +44,7 @@
 
 .links-section h3 {
   font-size: 20px;
-  color: #333;
+  color: #533132;
   margin-bottom: 10px;
 }
 
