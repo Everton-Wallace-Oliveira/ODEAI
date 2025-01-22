@@ -3,8 +3,8 @@ import Home from './components/home/Home';
 import Login from './components/login/Login';
 import Cadastro from './components/cadastro/Cadastro';
 import AdminController from './components/admin/AdminController';
-import NewPlaces from './components/admin/NewPlaces';
-import UpdatePlace from './components/admin/UpdatePlace';
+import NewTestimonials from './components/admin/NewTestimonials.jsx';
+import UpdateTestimonials from './components/admin/UpdateTestimonials.jsx';
 import AdminHome from './components/admin/AdminHome';
 import { ProtectedRoute } from './routing/ProtectedRoute';
 import NewPassword from './components/recovery/NewPassword';
@@ -52,7 +52,7 @@ function App() {
           path="/admin/new-places"
           element={
             <ProtectedRoute redirectPath="/login" adminOnly>
-              <NewPlaces />
+              <NewTestimonials />
             </ProtectedRoute>
           }
         />
@@ -60,7 +60,7 @@ function App() {
           path="/admin/update-place"
           element={
             <ProtectedRoute redirectPath="/login" adminOnly>
-              <UpdatePlace />
+              <UpdateTestimonials />
             </ProtectedRoute>
           }
         />
