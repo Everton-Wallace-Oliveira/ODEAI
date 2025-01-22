@@ -1,3 +1,21 @@
+
+.cabecalho{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  color: #2d2a2a;
+  height: 50px;
+  border-bottom: 2px solid rgb(146, 143, 143);
+}
+
+.text-date, .text-ola, .text-editar{
+  font-family: 'Poetsen One', 'sans-serif';
+  font-size: 14px;
+
+}
 /* HomePage.css */
 .containerHome {
   font-family: Arial, sans-serif;
