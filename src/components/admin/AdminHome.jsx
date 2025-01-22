@@ -13,7 +13,7 @@ export default function AdminHome() {
             </Link>
           </button>
           <button className="button">
-            <Link to="/admin/new-places" className="link-ver">
+            <Link to="/admin/new-testimonials" className="link-ver">
               Cadastrar depoimentos
             </Link>
           </button>

@@ -16,6 +16,7 @@ const initialFormState = {
   interviewerName: '',
   description: '',
   date: '',
+  image: '',
 };
 
 export default function NewTestimonials() {
@@ -46,18 +47,12 @@ export default function NewTestimonials() {
   function handleImageChange(event) {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setImage(file);
     }
   }
-
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(form);
-
+  
     if (
       form.title &&
       form.nameInterviewed &&
@@ -66,16 +61,15 @@ export default function NewTestimonials() {
       form.date &&
       image
     ) {
-      const data = {
-        title: form.title,
-        nameInterviewed: form.nameInterviewed,
-        interviewerName: form.interviewerName,
-        description: form.description,
-        date: form.date,
-        image: image,
-      };
-
-      registerTestimonials(data, token)
+      const formData = new FormData();
+      formData.append('title', form.title);
+      formData.append('nameInterviewed', form.nameInterviewed);
+      formData.append('interviewerName', form.interviewerName);
+      formData.append('description', form.description);
+      formData.append('date', form.date);
+      formData.append('image', image);
+  
+      registerTestimonials(formData, token)
         .then(() => {
           handleAlert(true, 'Cadastro realizado com sucesso', 'success');
           setForm(initialFormState);
@@ -95,7 +89,7 @@ export default function NewTestimonials() {
     } else {
       handleAlert(true, 'Preencha todos os campos', 'danger');
     }
-  }
+  }  
 
   return (
     <>

@@ -1,35 +1,17 @@
 import axios from 'axios';
-import { NEW_PLACE_ENDPOINT } from '../../constants/urls';
+import { NEW_TESTIMONIAL_ENDPOINT } from '../../constants/urls';
 
-export function registerTestimonials(
-  title,
-  nameInterviewed,
-  interviewerName,
-  description,
-  image,
-  date,
-  accessToken
-) {
+export function registerTestimonials(formData, accessToken) {
   return new Promise((resolve, reject) => {
     const headers = {
       headers: {
-        'Content-type': 'application/json', 
+        'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${accessToken}`,
       },
     };
 
-  
-    const data = {
-      title: title,
-      nameInterviewed: nameInterviewed,
-      interviewerName: interviewerName,
-      description: description,
-      date: date, 
-      image: image, 
-    };
-
     axios
-      .post(NEW_PLACE_ENDPOINT, data, headers) 
+      .post(NEW_TESTIMONIAL_ENDPOINT, formData, headers)
       .then((response) => {
         console.log(response);
         resolve(response.data);

@@ -49,7 +49,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/new-places"
+          path="/admin/new-testimonials"
           element={
             <ProtectedRoute redirectPath="/login" adminOnly>
               <NewTestimonials />
@@ -57,7 +57,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/update-place"
+          path="/admin/update-testimonials"
           element={
             <ProtectedRoute redirectPath="/login" adminOnly>
               <UpdateTestimonials />

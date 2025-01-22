@@ -73,9 +73,8 @@ export default function UpdateTestimonials() {
       )
         .then((data) => {
           handleAlert(true, 'Atualização realizado com sucesso', 'success');
-          //voltar para a tela anterior
           navigate(-1);
-          fileInputRef.current.value = ''; // Redefinir o campo de entrada de arquivo
+          fileInputRef.current.value = ''; 
         })
         .catch((error) => {
           handleAlert(

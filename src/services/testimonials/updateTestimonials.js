@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { UPDATE_PLACE_ENDPOINT } from '../../constants/urls';
+import { UPDATE_TESTIMONIAL_ENDPOINT } from '../../constants/urls';
 
 export function updateTestimonials(
   id,
@@ -29,7 +29,7 @@ export function updateTestimonials(
     };
 
     axios
-      .patch(`${UPDATE_PLACE_ENDPOINT}${id}`, objToSubmit, headers) 
+      .patch(`${UPDATE_TESTIMONIAL_ENDPOINT}${id}`, objToSubmit, headers) 
       .then((response) => {
         console.log(response);
         resolve(response.data);

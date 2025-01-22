@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DELETE_PLACE_ENDPOINT } from '../../constants/urls';
+import { DELETE_TESTIMONIAL_ENDPOINT } from '../../constants/urls';
 
 export function deleteTestimonials(id, accessToken) {
   return new Promise((resolve, reject) => {
@@ -11,7 +11,7 @@ export function deleteTestimonials(id, accessToken) {
     };
 
     axios
-      .delete(`${DELETE_PLACE_ENDPOINT}${id}`, header)
+      .delete(`${DELETE_TESTIMONIAL_ENDPOINT}${id}`, header)
       .then((response) => {
         console.log(response);
         resolve(response.data);
