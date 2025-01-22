@@ -3,30 +3,31 @@ import Alert from '../login/Alert';
 import { AlertContext } from '../../contexts/alertContext';
 import { AlertTypeContext } from '../../contexts/alertTypeContext';
 import { AlertColorContext } from '../../contexts/alertColorContext';
-import { updatePlace } from '../../services/places/updatePlace';
+import { updateTestimonials } from '../../services/testimonials/updateTestimonials';
 import '../../styles/global.css';
-import '../../styles/new_places.css';
+import '../../styles/testimonials.css';
 import { useNavigate } from 'react-router-dom';
 import Header from '../home/Header';
 
-export default function UpdatePlace() {
+export default function UpdateTestimonials() {
   const navigate = useNavigate();
 
-  const placeAsStr = localStorage.getItem('update-place');
-  const place = JSON.parse(placeAsStr);
-  console.log(place);
+  const testimonialsAsStr = localStorage.getItem('update-testimonials');
+  const testimonials = JSON.parse(testimonialsAsStr);
 
   const [form, setForm] = useState({
-    _id: place._id ?? '',
-    title: place.name ?? '',
-    desc: place.description ?? '',
-    image: place.image ?? '',
-    endereco: place.address ?? '',
-    horario: place.openingHours ?? '',
+    _id: testimonials._id ?? '',
+    title: testimonials.name ?? '',
+    desc: testimonials.description ?? '',
+    image: testimonials.image ?? '',
+    endereco: testimonials.address ?? '',
+    horario: testimonials.openingHours ?? '',
   });
 
   const [image, setImage] = useState('');
-  const [imageToShow, setImageToShow] = useState(place.image ?? undefined);
+  const [imageToShow, setImageToShow] = useState(
+    testimonials.image ?? undefined
+  );
 
   const fileInputRef = useRef(null);
   const [showAlert, setShowAlert] = useContext(AlertContext);
@@ -61,7 +62,7 @@ export default function UpdatePlace() {
     console.log(form);
 
     if (form._id && form.title && form.desc && form.endereco && form.horario) {
-      updatePlace(
+      updateTestimonials(
         form._id,
         form.title,
         form.endereco,
@@ -72,9 +73,8 @@ export default function UpdatePlace() {
       )
         .then((data) => {
           handleAlert(true, 'Atualização realizado com sucesso', 'success');
-          //voltar para a tela anterior
           navigate(-1);
-          fileInputRef.current.value = ''; // Redefinir o campo de entrada de arquivo
+          fileInputRef.current.value = ''; 
         })
         .catch((error) => {
           handleAlert(
@@ -94,11 +94,11 @@ export default function UpdatePlace() {
     <>
       <Alert></Alert>
       <Header />
-      <div className="background mainContainerPlaces">
+      <div className="background mainContainertestimonials">
         <form className="subcontainer" onSubmit={handleSubmit}>
-          <h1 className="placeTitle">Atualização de ponto turístico</h1>
+          <h1 className="testimonialsTitle">Atualização de ponto turístico</h1>
 
-          <h3 className="titlePlaces">Título</h3>
+          <h3 className="titletestimonials">Título</h3>
           <input
             className="inputTitle"
             type="text"
@@ -106,34 +106,33 @@ export default function UpdatePlace() {
             value={form.title}
             onChange={handleChange}
           />
-
-          <h3 className="titlePlaces">Endereço</h3>
+          <h3 className="titleTestmonials">Nome(a) do Entrevistador(a)</h3>
           <input
             className="inputTitle"
             type="text"
-            name="endereco"
-            value={form.endereco}
+            name="interviewerName"
+            value={form.interviewerName}
             onChange={handleChange}
           />
 
-          <h3 className="titlePlaces">Horário de funcionamento</h3>
+          <h3 className="titleTestmonials">Nome(a) do Entrevistado(a)</h3>
           <input
             className="inputTitle"
             type="text"
-            name="horario"
-            value={form.horario}
+            name="nameInterviewed"
+            value={form.nameInterviewed}
             onChange={handleChange}
           />
 
-          <h3 className="titlePlaces">Descrição</h3>
+          <h3 className="titleTestmonials">Data da entrevista</h3>
           <textarea
             className="inputDesc"
-            name="desc"
-            value={form.desc}
+            name="date"
+            value={form.date}
             onChange={handleChange}
           />
 
-          <h3 className="titlePlaces">Imagem do ponto turístico</h3>
+          <h3 className="titletestimonials">Imagem</h3>
           {imageToShow && (
             <img className="imagem" src={imageToShow} alt={form.title} />
           )}

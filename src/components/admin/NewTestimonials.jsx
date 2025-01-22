@@ -3,21 +3,23 @@ import Alert from '../login/Alert';
 import { AlertContext } from '../../contexts/alertContext';
 import { AlertTypeContext } from '../../contexts/alertTypeContext';
 import { AlertColorContext } from '../../contexts/alertColorContext';
-import { registerPlace } from '../../services/places/registerPlace';
+import { registerTestimonials } from '../../services/testimonials/registerTestimonials';
 import Header from '../home/Header';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/global.css';
-import '../../styles/new_places.css';
+import { Link } from 'react-router-dom';
+import '../../styles/testimonials.css';
 
 const initialFormState = {
   title: '',
-  desc: '',
+  nameInterviewed: '',
+  interviewerName: '',
+  description: '',
+  date: '',
   image: '',
-  endereco: '',
-  horario: '',
 };
 
-export default function NewPlaces() {
+export default function NewTestimonials() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState(initialFormState);
@@ -48,25 +50,31 @@ export default function NewPlaces() {
       setImage(file);
     }
   }
-
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(form);
-
-    if (form.title && form.desc && form.endereco && form.horario && image) {
-      registerPlace(
-        form.title,
-        form.endereco,
-        form.horario,
-        form.desc,
-        image,
-        token
-      )
-        .then((data) => {
+  
+    if (
+      form.title &&
+      form.nameInterviewed &&
+      form.interviewerName &&
+      form.description &&
+      form.date &&
+      image
+    ) {
+      const formData = new FormData();
+      formData.append('title', form.title);
+      formData.append('nameInterviewed', form.nameInterviewed);
+      formData.append('interviewerName', form.interviewerName);
+      formData.append('description', form.description);
+      formData.append('date', form.date);
+      formData.append('image', image);
+  
+      registerTestimonials(formData, token)
+        .then(() => {
           handleAlert(true, 'Cadastro realizado com sucesso', 'success');
-          setForm(initialFormState); // Redefinir o formulário
+          setForm(initialFormState);
           if (fileInputRef.current) {
-            fileInputRef.current.value = ''; // Redefinir o campo de entrada de arquivo
+            fileInputRef.current.value = '';
           }
           navigate(-1);
         })
@@ -76,22 +84,19 @@ export default function NewPlaces() {
             'Algum erro ocorreu durante o cadastro, tente novamente',
             'danger'
           );
-
-          console.log(error.response.status);
+          console.log(error.response?.status);
         });
     } else {
       handleAlert(true, 'Preencha todos os campos', 'danger');
     }
-  }
+  }  
 
   return (
     <>
-      <Alert></Alert>
+      <Alert />
       <Header />
       <div className="background mainContainerTestmonials">
         <form className="subcontainer" onSubmit={handleSubmit}>
-          
-
           <h3 className="titleTestmonials">Título</h3>
           <input
             className="inputTitle"
@@ -105,8 +110,8 @@ export default function NewPlaces() {
           <input
             className="inputTitle"
             type="text"
-            name="endereco"
-            value={form.endereco}
+            name="interviewerName"
+            value={form.interviewerName}
             onChange={handleChange}
           />
 
@@ -114,45 +119,43 @@ export default function NewPlaces() {
           <input
             className="inputTitle"
             type="text"
-            name="horario"
-            value={form.horario}
+            name="nameInterviewed"
+            value={form.nameInterviewed}
             onChange={handleChange}
+          />
+
+          <h3 className="titleTestmonials">Data da entrevista</h3>
+          <input
+            type="date"
+            className="inputDesc"
+            name="date"
+            value={form.date}
+            onChange={handleChange}
+            style={{ width: '200px', height: '40px' }}
           />
 
           <h3 className="titleTestmonials">Depoimento</h3>
           <textarea
             className="inputDesc"
-            name="desc"
-            value={form.desc}
+            name="description"
+            value={form.description}
             onChange={handleChange}
           />
 
           <h3 className="titleTestmonials">Imagens</h3>
-          {image && (
-            <img
-              className="imagem"
-              src={URL.createObjectURL(image)}
-              alt={form.title}
-            />
-          )}
+          {image && <img className="imagem" src={image} alt={form.title} />}
           <input
             className="inputFile"
             type="file"
             ref={fileInputRef}
             onChange={handleImageChange}
           />
-
-          <div className="container-upload">
-          <button className="button cadastrar" type="submit">
-            Upload
-          </button>
-          </div>
-          <div className="container-buttons2"></div>
-          <div className="container2buttons">
-          <div className="action-buttons">
-        <button className="cancel-button" type="button">Cancelar</button>
-        <button className="confirm-button" type="submit">Confirmar</button>
-      </div>
+          <div className="container-buttons2">
+            <div className="action-buttons">
+              <button className="confirm-button" type="submit">
+                Cadastrar
+              </button>
+            </div>
           </div>
         </form>
       </div>
