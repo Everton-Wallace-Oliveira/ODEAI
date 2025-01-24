@@ -2,7 +2,7 @@
 .servicos-ufba .page-layout {
   display: flex;
   flex-direction: column;
-  min-height: 85vh;  /* altura da tela */
+  min-height: 100vh;  /* altura da tela */
   flex: 1;
 }
 .servicos-ufba .layout {
