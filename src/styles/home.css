@@ -57,19 +57,20 @@
 .image-placeholder {
   width: 100%;
   max-width: 300px;
-  background-color: #d4c8b2;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
   color: #5a4526;
-  padding-top: 60px;
-  height: 60vh;
+  padding-top: 20px;
+  height: 100vh;
 }
 
-/*.image-placeholder img {
+.image-placeholder img {
   
-}*/
+  max-width: 300px;
+  width: 100%;
+}
 
 /* Responsividade */
 @media (min-width: 768px) {
@@ -79,5 +80,90 @@
 
   .text-content {
     padding-right: 10px;
+  }
+}
+
+
+.editorial, .depoimento-semana, .noticias, .producao-escrita {
+  background-color: #fcf7f7;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.editorial-content, .depoimento-content, .noticias-content, .producao-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: black;
+}
+
+.editorial-content p, .depoimento-content p, .noticias-content ul {
+  margin-bottom: 15px;
+}
+
+.noticias-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.noticias-content ul li {
+  margin: 8px 0;
+}
+
+.noticias-content a {
+  color: #533132;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.noticias-content a:hover {
+  text-decoration: underline;
+}
+
+.producao-content .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #005b6e;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.producao-content .btn:hover {
+  background-color: #003d47;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .text-content, .image-content {
+    flex: none;
+    width: 100%;
+    padding: 0;
+  }
+
+  h2.home-title {
+    font-size: 2rem;
+  }
+
+  .editorial, .depoimento-semana, .noticias, .producao-escrita {
+    margin-top: 20px;
+  }
+
+  .editorial-content, .depoimento-content, .noticias-content, .producao-content {
+    font-size: 0.95rem;
+  }
+
+  .producao-content .btn {
+    width: 100%;
+    text-align: center;
   }
 }
