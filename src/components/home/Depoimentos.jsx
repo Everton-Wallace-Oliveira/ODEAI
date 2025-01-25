@@ -5,15 +5,44 @@ import { Carousel } from 'react-bootstrap';
 import {useEffect, useState} from 'react';
 import { getAllTestimonials } from '../../services/testimonials/getAllTestimonials.js';
 import Footer from '../footer/Footer.jsx';
+import { deleteTestimonials } from '../../services/testimonials/deleteTestimonials.js';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Depoimentos() {
   const [reviews, setReviews] = useState([]);
-  const [expandedReviewId, setExpandedReviewId] = useState(null);
+  // const [expandedReviewId, setExpandedReviewId] = useState(null);
+  const isAdmin = localStorage.getItem('isAdmin') == 'true';
+  const token = localStorage.getItem('token');
+  const navigate = useNavigate();
 
-  const handleReviewClick = (reviewId) => {
-    setExpandedReviewId(expandedReviewId === reviewId ? null : reviewId);
+  // const handleReviewClick = (reviewId) => {
+  //   setExpandedReviewId(expandedReviewId === reviewId ? null : reviewId);
+  // };
+
+  const handleEdit = (review_id) => {
+    // Lógica para editar o depoimento
+    localStorage.setItem('update-testimonials', JSON.stringify(review_id));
+    navigate('/admin/update-testimonials');
   };
+
+  const handleDelete = (review_id) => {
+    // Lógica para excluir o depoimento
+    const confirm = window.confirm(
+      'Tem certeza de que deseja remover esta atração?'
+    );
+    if (confirm) {
+      deleteTestimonials(review_id, token)
+        .then((data) => {
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.log(error.response.status);
+        });
+    }
+  };
+
 
   useEffect(() => {
     getAllTestimonials().then((response) => {
@@ -38,10 +67,10 @@ function Depoimentos() {
         </div>
 
         <div>
-          {/* Carrossel dos depoimentos */}
           <Carousel>
             {reviews.map((review) => (
-              <Carousel.Item key={review.id} onClick={() => handleReviewClick(review.id)}>
+              // <Carousel.Item key={review.id} onClick={() => handleReviewClick(review.id)}>
+              <Carousel.Item key={review.id}>
                 <div className="depoimentos-carrossel">
                   <div className="depoimentos-details-header">
                     <div>
@@ -52,13 +81,34 @@ function Depoimentos() {
                   </div>
 
                   <div className="depoimentos-details-descricao">
-                    {expandedReviewId === review.id && (
+                    {/*{expandedReviewId === review.id && (*/}
+                    {/*  <div className="depoimentos-details-extra">*/}
+                    {/*    <p>{review.description}</p>*/}
+                    {/*    <div><img className="depoimentos-details-img" src={review.image} /></div>*/}
+                    {/*    <p><em>Entrevista conduzida por {review.interviewerName}</em></p>*/}
+                    {/*    {isAdmin && (*/}
+                    {/*      <div className="admin-buttons">*/}
+                    {/*        <button onClick={() => handleEdit(review.id)}>Editar</button>*/}
+                    {/*        <button onClick={() => handleDelete(review.id)}>Excluir</button>*/}
+                    {/*      </div>*/}
+                    {/*    )}*/}
+                    {/*  </div>*/}
+                    {/*)}*/}
+
                       <div className="depoimentos-details-extra">
                         <p>{review.description}</p>
                         <div><img className="depoimentos-details-img" src={review.image} /></div>
                         <p><em>Entrevista conduzida por {review.interviewerName}</em></p>
+                        {isAdmin && (
+                          <div className="admin-buttons-container">
+                            <div className="admin-buttons">
+                              <button className="admin-button" onClick={() => handleEdit(review.id)}>Editar</button>
+                              <button className="admin-button" onClick={() => handleDelete(review.id)}>Excluir</button>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    )}
+
                   </div>
                 </div>
               </Carousel.Item>
