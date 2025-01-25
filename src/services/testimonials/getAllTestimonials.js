@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { ALL_PLACES_ENDPOINT } from '../../constants/urls';
+import { ALL_TESTIMONIALS_ENDPOINT } from '../../constants/urls';
 
-export function getAllPlaces(accessToken) {
+export function getAllTestimonials(accessToken) {
   return new Promise((resolve, reject) => {
     const header = {
       headers: {
@@ -11,7 +11,7 @@ export function getAllPlaces(accessToken) {
     };
 
     axios
-      .get(ALL_PLACES_ENDPOINT, header)
+      .get(ALL_TESTIMONIALS_ENDPOINT, header)
       .then((response) => {
         if (response.status == 200) {
           // console.log(response.data)
