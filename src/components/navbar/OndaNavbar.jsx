@@ -5,7 +5,7 @@ import '../../styles/navbar.css';
 
 function OndaNavbar() {
   return (
-    <Navbar expand="lg" className="onda-navbar">
+    <Navbar expand="lg" className="onda-navbar fixed-header">
       <Container>
         <Navbar.Brand href="/home" className="navbar-brand">
           Onda

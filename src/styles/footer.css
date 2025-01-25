@@ -4,11 +4,13 @@
   display: flex;
   justify-content: space-around;  /* Distribui os itens de forma espaçada */
   color: #533132;
-  padding: auto;
   font-family: 'Roboto', sans-serif;
+  padding-top: 15px;
 }
 
-
+.footer-right {
+  margin-top: -15px;
+}
 
 .footer-name {
   font-size: 1.5rem;

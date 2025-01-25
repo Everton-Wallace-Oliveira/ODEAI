@@ -11,6 +11,13 @@
   border-bottom: 2px solid rgb(146, 143, 143);
 }
 
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 .text-date, .text-ola, .text-editar{
   font-family: 'Poetsen One', 'sans-serif';
   font-size: 14px;
@@ -70,11 +77,7 @@
     flex-direction: row;
   }
 
-  .image-content {
-    justify-content: flex-end;
-  }
-
   .text-content {
-    padding-right: 20px;
+    padding-right: 10px;
   }
 }
