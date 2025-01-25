@@ -7,7 +7,7 @@ import Footer from '../footer/Footer.jsx';
 function ServicosUfba() {
   return (
     <>
-      <OndaNavbar />
+      <OndaNavbar></OndaNavbar>
 
       <div className="servicos-ufba">
         <div className="page-layout">
