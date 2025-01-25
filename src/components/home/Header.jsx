@@ -42,7 +42,7 @@ export default function Header(){
     return(
 
 
-        <header className="cabecalho">
+        <header className="cabecalho fixed-header">
         
         {isPaginaInicial ? <div/> : <button className="text-ola" type="button" onClick={goBack}>{"< Voltar"}</button>}
         

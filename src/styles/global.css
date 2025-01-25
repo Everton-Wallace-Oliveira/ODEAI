@@ -132,6 +132,15 @@
 }
 
 
+.home-title{
+    font-family: 'Poetsen One', sans-serif;
+    font-size: 30px;
+    color: #744344;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
 .depoimentos-body {
   margin: 40px;
   min-height: 80vh;
