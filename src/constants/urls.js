@@ -1,4 +1,6 @@
-export const BACKEND_URL = 'http://localhost:3000/'
+export const BACKEND_URL = 'https://odeai-backend.vercel.app/'
+
+//export const BACKEND_URL = 'http://localhost:3000/'
 
 export const USERS_ENDPOINT = BACKEND_URL + 'user/';
 
