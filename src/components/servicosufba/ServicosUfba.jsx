@@ -15,32 +15,65 @@ function ServicosUfba() {
               <h1 className="mainTitle">Serviços UFBA</h1>
               <p className="subtitle">Aqui estão serviços importantes oferecidos pela UFBA.</p>
                   <div className="links-section">
-            <h3>Atendimento Acadêmico</h3>
+            <h3>PET Comunidades Indígenas da UFBA</h3>
             <a
-              href="https://sistemas.ufba.br"
+              href="https://petcindigenas.ufba.br/"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              Sistemas UFBA
+              >
+              PET Cindigenas
             </a>
   
             <h3>Bibliotecas</h3>
             <a
-              href="https://biblioteca.ufba.br"
+              href="https://www.pergamum.bib.ufba.br/pergamum/biblioteca/index.php"
               target="_blank"
               rel="noopener noreferrer"
-            >
+              >
               Biblioteca Universitária
             </a>
   
-            <h3>Serviços Online</h3>
+            <h3>Pró-Reitoria de Ações Afirmativas e Assistência Estudantil </h3>
             <a
-              href="https://siac.ufba.br"
+              href="https://proae.ufba.br/pt-br/proae"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              Portal do Aluno
+              >
+              PROAE
             </a>
+            <h3> Pró- Reitoria de Ensino de Graduação </h3>
+            <a
+              href="https://prograd.ufba.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              PROGRAD
+              </a>
+            <h3> Pró-Reitoria de Pesquisa e Pós-Graduação </h3>
+            <a
+              href="https://prppg.ufba.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              PRPPG
+            </a>
+            <h3>Pró-Reitoria de Extensão</h3>
+            <a
+              href="https://proext.ufba.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              PROEXT
+            </a>
+            <h3>Saberes Indígenas</h3>
+            <a
+              href="https://saberesindigenas.isc.ufba.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              Saberes Indígenas(Relatório)
+            </a>
+            
             </div>
           </div>
         </div>

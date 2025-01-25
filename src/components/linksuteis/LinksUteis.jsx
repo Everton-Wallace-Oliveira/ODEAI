@@ -14,15 +14,7 @@ function LinksUteis() {
             <h1 className="mainTitle">Links Úteis</h1>
               <p className="subtitle">Encontre aqui alguns os links importantes.</p>
             <div className="links-section">
-              <h3>Documentação Importante</h3>
-                <a
-                  href="https://www.ufba.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  UFBA - Página Oficial
-                </a>
-  
+              
               <h3>Recursos Acadêmicos</h3>
                 <a
                   href="https://repositorio.ufba.br"
