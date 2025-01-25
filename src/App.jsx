@@ -11,9 +11,10 @@ import NewPassword from './components/recovery/NewPassword';
 import PasswordResetRoute from './components/recovery/PasswordResetRoute';
 import Depoimentos from './components/home/Depoimentos.jsx';
 import DepoimentosDetails from './components/home/DepoimentosDetails.jsx';
-import Places from './components/home/Places';
 import LinksUteis from './components/linksuteis/LinksUteis';
 import ServicosUfba from './components/servicosufba/ServicosUfba';
+import Recovery from './components/recovery/Recovery';
+import SendToken from "./components/recovery/SendToken";
 
 
 function App() {
@@ -24,18 +25,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
-        <Route
-        path="/depoimentos"
-        element={<Depoimentos />}
-      />
-      <Route
-        path="/depoimentos-details"
-        element={<DepoimentosDetails />}
-      />
-        <Route
-          path="/places"
-          element={<Places  />}
-        />
+        <Route path="/depoimentos" element={<Depoimentos />} />
+        <Route path="/depoimentos-details" element={<DepoimentosDetails />} />
         <Route path="/links-uteis" element={<LinksUteis />} />
         <Route path="/servicos-ufba" element={<ServicosUfba />} />
 
@@ -73,6 +64,25 @@ function App() {
           }
         />
 
+        <Route
+          path="/newPassword"
+          element={
+            <PasswordResetRoute
+              element={<NewPassword />}
+              routeName="newPassword"
+            />
+          }
+        />
+        <Route path="/recovery" element={<Recovery />} />
+        <Route
+          path="/recoveryToken"
+          element={
+            <PasswordResetRoute
+              element={<SendToken />}
+              routeName="recoveryToken"
+            />
+          }
+        />
         <Route
           path="/newPassword"
           element={

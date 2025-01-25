@@ -1,8 +1,9 @@
 import React from 'react';
-import Carousel from './Carousel';
+import Carousel from './Carousel.jsx';
 import '../../styles/global.css';
 import '../../styles/home.css';
 import OndaNavbar from '../navbar/OndaNavbar.jsx';
+
 
 /**
  * Componente Places
@@ -11,7 +12,7 @@ import OndaNavbar from '../navbar/OndaNavbar.jsx';
  *
  */
 
-export default function Places() {
+export default function DepoimentosPage() {
   return (
     <>
       {/*<Header></Header>*/}

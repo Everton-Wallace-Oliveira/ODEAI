@@ -1,54 +1,52 @@
-
 .footer {
-    display: flex;
-    justify-content: space-around;  /* Distribui os itens de forma espaçada */
-    align-items: center;
-    background-color:      blanchedalmond;
-    color: #533132;
-    height: 10vh;
-    padding: 0 20px;
-    font-family: 'Roboto', sans-serif;
-  }
-  
- 
-  
+  background-color:      blanchedalmond;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;  /* Distribui os itens de forma espaçada */
+  color: #533132;
+  padding: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+.footer-name {
+  font-size: 1.5rem;
+}
+
+.footer-text {
+  font-size: 1rem;
+}
+
+.social-icon {
+  color: #533132;
+  font-size: 2rem;
+  transition: color 0.3s;
+  padding-left: 10px;
+}
+
+.fab fa-instagram {
+  gap: 20px;
+}
+.social-icon:hover {
+  color: #e4405f; /* Cor do Instagram */
+}
+
+.social-icon:nth-child(2):hover {
+  color: #ff0000; /* Cor do YouTube */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
   .footer-name {
+    font-size: 1.2rem;
+  }
+
+  .footer-text {
+    font-size: 0.9rem;
+  }
+
+  .social-icon {
     font-size: 1.5rem;
   }
-  
-  .footer-text {
-    font-size: 1rem;
-  }
-  
-  .social-icon {
-    color: #533132;
-    font-size: 2rem;
-    transition: color 0.3s;
-    padding-left: 10px;
-  }
-
-  .fab fa-instagram {
-    gap: 20px;
-  }
-  .social-icon:hover {
-    color: #e4405f; /* Cor do Instagram */
-  }
-  
-  .social-icon:nth-child(2):hover {
-    color: #ff0000; /* Cor do YouTube */
-  }
-  
-  /* Responsividade para telas menores */
-  @media (max-width: 768px) {
-    .footer-name {
-      font-size: 1.2rem;
-    }
-  
-    .footer-text {
-      font-size: 0.9rem;
-    }
-  
-    .social-icon {
-      font-size: 1.5rem;
-    }
-  }
+}

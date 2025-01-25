@@ -4,6 +4,8 @@ import OndaNavbar from '../navbar/OndaNavbar.jsx';
 import { Carousel } from 'react-bootstrap';
 import {useEffect, useState} from 'react';
 import { getAllTestimonials } from '../../services/testimonials/getAllTestimonials.js';
+import Footer from '../footer/Footer.jsx';
+
 
 function Depoimentos() {
   const [reviews, setReviews] = useState([]);
@@ -89,6 +91,7 @@ function Depoimentos() {
           </Carousel>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

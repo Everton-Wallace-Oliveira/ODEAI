@@ -20,8 +20,7 @@
 .containerHome {
   font-family: Arial, sans-serif;
   padding: 50px;
-  
-  min-height: 100vh;
+  min-height: 87vh;
 }
 
 .content {
