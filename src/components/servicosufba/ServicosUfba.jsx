@@ -85,7 +85,7 @@ function ServicosUfba() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer></Footer>
     </>
   );
 }

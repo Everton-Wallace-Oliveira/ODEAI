@@ -1,7 +1,7 @@
 .links-uteis .page-layout {
   display: flex;
   flex-direction: column;
-  min-height: 85vh; /*altura*/
+  min-height: 85vh;
   flex: 1;
 }
 

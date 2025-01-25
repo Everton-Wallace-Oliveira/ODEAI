@@ -1,7 +1,7 @@
 .servicos-ufba .page-layout {
   display: flex;
   flex-direction: column;
-  min-height: 85vh; /* altura da tela */
+  min-height: 85vh;
   flex: 1;
 }
 .servicos-ufba .layout {
@@ -12,7 +12,7 @@
   width: 100%;
   max-width: 1200px;
   margin: auto;
-  padding: px;
+  padding: 8px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: none;
