@@ -26,7 +26,7 @@
 /* HomePage.css */
 .containerHome {
   font-family: Arial, sans-serif;
-  padding: 50px;
+  padding: 40px;
   min-height: 87vh;
 }
 
@@ -54,21 +54,11 @@
   min-width: 50%;
 }
 
-.image-placeholder {
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  color: #5a4526;
-  padding-top: 20px;
-  height: 100vh;
-}
+
 
 .image-placeholder img {
   
-  max-width: 300px;
+  max-width: 350px;
   width: 100%;
 }
 
