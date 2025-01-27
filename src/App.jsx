@@ -10,7 +10,6 @@ import { ProtectedRoute } from './routing/ProtectedRoute';
 import NewPassword from './components/recovery/NewPassword';
 import PasswordResetRoute from './components/recovery/PasswordResetRoute';
 import Depoimentos from './components/home/Depoimentos.jsx';
-import DepoimentosDetails from './components/home/DepoimentosDetails.jsx';
 import LinksUteis from './components/linksuteis/LinksUteis';
 import ServicosUfba from './components/servicosufba/ServicosUfba';
 import Recovery from './components/recovery/Recovery';
@@ -26,7 +25,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/depoimentos" element={<Depoimentos />} />
-        <Route path="/depoimentos-details" element={<DepoimentosDetails />} />
         <Route path="/links-uteis" element={<LinksUteis />} />
         <Route path="/servicos-ufba" element={<ServicosUfba />} />
 
