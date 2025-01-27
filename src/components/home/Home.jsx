@@ -32,7 +32,7 @@ function Home() {
           
           <section className="image-content">
             <div className="image-placeholder">
-              <img src="src\assets\emblema.png" alt="Representação de cultura indígena" />
+              <img src="src\assets\emblema.webp" alt="Representação de cultura indígena" />
             </div>
           </section>
         </main>
