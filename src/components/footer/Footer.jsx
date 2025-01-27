@@ -12,7 +12,7 @@ const Footer = () => {
           <p className="footer-text">Feito por @UFBA Todos os direitos reservados</p>
         </div>
         <div className="footer-right">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon" id>
+          <a href="https://www.instagram.com/panafroindigena_ufba?igsh=MTloaXl6b2h6NWVseg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="social-icon" id>
             <i className="fab fa-instagram"></i>
           </a>
           <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon">
