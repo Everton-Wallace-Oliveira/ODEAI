@@ -1,8 +1,7 @@
 .links-uteis .page-layout {
   display: flex;
   flex-direction: column;
-  min-height: 85vh;
-  flex: 1;
+  min-height: 87vh;  /*altura mínima para garantir que a página ocupe toda a altura da tela */
 }
 
 .links-uteis .layout {
@@ -17,7 +16,7 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: none;
-  flex: 1;
+  flex: 1; /* faz o conteúdo crescer quando necessário, mas não com exagero */
 }
 
 .links-uteis .mainTitle {

@@ -13,13 +13,13 @@ export default function AdminHome() {
             </Link>
           </button>
           <button className="button">
-            <Link to="/admin/new-places" className="link-ver">
-              Cadastrar pontos turísticos
+            <Link to="/admin/new-testimonials" className="link-ver">
+              Cadastrar depoimentos
             </Link>
           </button>
           <button className="button">
             <Link to="/home" className="link-ver">
-              Ver pontos turísticos
+              ONDA ODEAI
             </Link>
           </button>
         </section>

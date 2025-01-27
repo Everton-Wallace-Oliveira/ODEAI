@@ -1,14 +1,7 @@
 import axios from 'axios';
-import { NEW_PLACE_ENDPOINT } from '../../constants/urls';
+import { DELETE_TESTIMONIAL_ENDPOINT } from '../../constants/urls';
 
-export function registerPlace(
-  name,
-  address,
-  openingHours,
-  description,
-  image,
-  accessToken
-) {
+export function deleteTestimonials(id, accessToken) {
   return new Promise((resolve, reject) => {
     const header = {
       headers: {
@@ -18,17 +11,7 @@ export function registerPlace(
     };
 
     axios
-      .post(
-        `${NEW_PLACE_ENDPOINT}`,
-        {
-          name: name,
-          address: address,
-          openingHours: openingHours,
-          description: description,
-          image: image,
-        },
-        header
-      )
+      .delete(`${DELETE_TESTIMONIAL_ENDPOINT}${id}`, header)
       .then((response) => {
         console.log(response);
         resolve(response.data);

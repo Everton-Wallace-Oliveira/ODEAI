@@ -1,17 +1,17 @@
 import axios from 'axios';
-import { DELETE_PLACE_ENDPOINT } from '../../constants/urls';
+import { NEW_TESTIMONIAL_ENDPOINT } from '../../constants/urls';
 
-export function deletePlace(id, accessToken) {
+export function registerTestimonials(formData, accessToken) {
   return new Promise((resolve, reject) => {
-    const header = {
+    const headers = {
       headers: {
-        'Content-type': 'multipart/form-data',
+        'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${accessToken}`,
       },
     };
 
     axios
-      .delete(`${DELETE_PLACE_ENDPOINT}${id}`, header)
+      .post(NEW_TESTIMONIAL_ENDPOINT, formData, headers)
       .then((response) => {
         console.log(response);
         resolve(response.data);

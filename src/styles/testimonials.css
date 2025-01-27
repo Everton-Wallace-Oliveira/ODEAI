@@ -1,36 +1,41 @@
-/* InsercaoDepoimento.css adaptado para Testmonials */
-
 * {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 .background {
   display: flex;
   justify-content: center;
-  padding: 20px;
-  background-color: #f8f4ef;
-  min-height: 90vh;
+  align-items: center;
+  background: linear-gradient(to bottom, #f8e1c4, #f3d1af);
+  min-height: 87vh;
 }
 
 .mainContainerTestmonials {
-  max-width: 800px;
+  max-width: auto;
   width: 100%;
   background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .subcontainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .testmonialTitle {
-  font-size: 24px;
+  font-size: 28px;
   color: #5a4526;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: center;
+  font-weight: bold;
 }
 
 .titleTestmonials {
@@ -41,14 +46,21 @@
 .inputTitle,
 .inputDesc {
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.inputTitle:focus,
+.inputDesc:focus {
+  border-color: #d6a662;
+  box-shadow: 0px 0px 4px #d6a662;
 }
 
 .inputDesc {
-  height: 100px;
+  height: 120px;
   resize: vertical;
 }
 
@@ -56,20 +68,9 @@
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: #f8f4ef;
 }
-
-.imagem {
-  width: 100%;
-  max-width: 300px;
-  min-height: 300px;
-  height: auto;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
-
-/* Buttons.css */
 
 .button-group {
   display: flex;
@@ -85,13 +86,12 @@
   color: #583B05;
   width: 150px;
   height: 40px;
+  border-radius: 8px;
 }
 
 .container-upload {
-  display: block;
-  width: 100%;
-  margin: auto;
-  text-align: right;
+  text-align: center;
+  margin: 10px 0;
 }
 
 .upload-button {
@@ -99,9 +99,10 @@
   color: #5a4526;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .upload-button:hover {
@@ -111,17 +112,22 @@
 .action-buttons {
   display: flex;
   gap: 10px;
-  justify-content: left;
+  justify-content: center;
+}
+
+.cancel-button,
+.confirm-button {
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .cancel-button {
   background-color: #f5f5f5;
   color: #5a4526;
-  padding: 5px 25px;
   border: 1px solid #ccc;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 16px;
 }
 
 .cancel-button:hover {
@@ -130,14 +136,9 @@
 
 .confirm-button {
   background-color: #5a4526;
-  color: #fff;
-  padding: 5px 25px;
+  color: #ffffff;
   border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 16px;
 }
-
 
 .confirm-button:hover {
   background-color: #4a3920;
@@ -145,24 +146,17 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
+  .subcontainer {
+    gap: 10px;
+  }
+
   .action-buttons {
     flex-direction: column;
+    gap: 15px;
   }
 
   .cancel-button,
   .confirm-button {
-    width: 100%;
-  }
-}
-
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .subcontainer {
-    gap: 15px;
-  }
-
-  .button {
     width: 100%;
   }
 }
