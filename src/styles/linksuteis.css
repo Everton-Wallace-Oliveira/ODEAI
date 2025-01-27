@@ -11,8 +11,8 @@
   text-align: center;
   width: 100%;
   max-width: 1200px;
-  margin: 20px auto;
-  padding: 39px;
+  margin: auto;
+  padding: 8px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: none;
@@ -23,7 +23,7 @@
   font-family: Poetsen One, sans-serif;
   font-size: 32px;
   color: #533132;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .links-uteis .subtitle {
