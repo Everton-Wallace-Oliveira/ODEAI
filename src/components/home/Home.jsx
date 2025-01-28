@@ -46,15 +46,7 @@ function Home() {
               saberes, tanto acadêmicos quanto os tradicionais.
             </p>
           </section>
-
-          <section className="image-content">
-            <div className="image-placeholder">
-              <img
-                src="src\assets\emblema.webp"
-                alt="Representação de cultura indígena"
-              />
-            </div>
-          </section>
+     
         </main>
 
         {/* Seção Editorial */}
