@@ -7,7 +7,7 @@ import { updateTestimonials } from '../../services/testimonials/updateTestimonia
 import '../../styles/global.css';
 import '../../styles/testimonials.css';
 import { useNavigate } from 'react-router-dom';
-import Header from '../home/Header';
+import Header from '../header/Header';
 
 export default function UpdateTestimonials() {
   const navigate = useNavigate();
@@ -22,6 +22,7 @@ export default function UpdateTestimonials() {
     image: testimonials.image ?? '',
     endereco: testimonials.address ?? '',
     horario: testimonials.openingHours ?? '',
+    date: testimonials.date ?? '', // Campo de data
   });
 
   const [image, setImage] = useState('');
@@ -59,22 +60,37 @@ export default function UpdateTestimonials() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(form);
 
-    if (form._id && form.title && form.desc && form.endereco && form.horario) {
+    const updatedFields = {};
+
+    if (form.title !== testimonials.name) {
+      updatedFields.title = form.title;
+    }
+    if (form.desc !== testimonials.description) {
+      updatedFields.description = form.desc;
+    }
+    if (form.date !== testimonials.date) {
+      updatedFields.date = form.date;
+    }
+    if (image && image !== testimonials.image) {
+      updatedFields.image = image;
+    }
+
+    if (Object.keys(updatedFields).length > 0) {
       updateTestimonials(
         form._id,
-        form.title,
-        form.endereco,
-        form.horario,
-        form.desc,
-        image,
+        updatedFields.title,
+        updatedFields.nameInterviewed ?? testimonials.nameInterviewed,
+        updatedFields.interviewerName ?? testimonials.interviewerName,
+        updatedFields.description,
+        updatedFields.date,
+        updatedFields.image,
         token
       )
         .then((data) => {
-          handleAlert(true, 'Atualização realizado com sucesso', 'success');
+          handleAlert(true, 'Atualização realizada com sucesso', 'success');
           navigate(-1);
-          fileInputRef.current.value = ''; 
+          fileInputRef.current.value = '';
         })
         .catch((error) => {
           handleAlert(
@@ -82,21 +98,20 @@ export default function UpdateTestimonials() {
             'Algum erro ocorreu durante a atualização, tente novamente',
             'danger'
           );
-
           console.log(error.response.status);
         });
     } else {
-      handleAlert(true, 'Preencha todos os campos', 'danger');
+      handleAlert(true, 'Nenhuma alteração foi feita', 'danger');
     }
   }
 
   return (
     <>
-      <Alert></Alert>
+      <Alert />
       <Header />
       <div className="background mainContainertestimonials">
         <form className="subcontainer" onSubmit={handleSubmit}>
-          <h1 className="testimonialsTitle">Atualização de ponto turístico</h1>
+          <h1 className="testimonialsTitle">Atualização do depoimento</h1>
 
           <h3 className="titletestimonials">Título</h3>
           <input
@@ -106,6 +121,7 @@ export default function UpdateTestimonials() {
             value={form.title}
             onChange={handleChange}
           />
+
           <h3 className="titleTestmonials">Nome(a) do Entrevistador(a)</h3>
           <input
             className="inputTitle"
@@ -125,8 +141,9 @@ export default function UpdateTestimonials() {
           />
 
           <h3 className="titleTestmonials">Data da entrevista</h3>
-          <textarea
-            className="inputDesc"
+          <input
+            className="inputTitle"
+            type="date"
             name="date"
             value={form.date}
             onChange={handleChange}

@@ -9,30 +9,40 @@ import AdminHome from './components/admin/AdminHome';
 import { ProtectedRoute } from './routing/ProtectedRoute';
 import NewPassword from './components/recovery/NewPassword';
 import PasswordResetRoute from './components/recovery/PasswordResetRoute';
-import Depoimentos from './components/home/Depoimentos.jsx';
+import Depoimentos from './components/depoimentos/Depoimentos.jsx';
 import LinksUteis from './components/linksuteis/LinksUteis';
 import ServicosUfba from './components/servicosufba/ServicosUfba';
 import Recovery from './components/recovery/Recovery';
-import SendToken from "./components/recovery/SendToken";
-
+import SendToken from './components/recovery/SendToken';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Rotas públicas */}
-        <Route path="/home" element={<Home />} />
+        {/* Rotas públicas: Login e Cadastro */}
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/depoimentos" element={<Depoimentos />} />
-        <Route path="/links-uteis" element={<LinksUteis />} />
-        <Route path="/servicos-ufba" element={<ServicosUfba />} />
 
-        {/* Rotas administrativas protegidas */}
+        {/* Rotas protegidas */}
+        <Route path="/home" element={<ProtectedRoute children={<Home />} />} />
+        <Route
+          path="/depoimentos"
+          element={<ProtectedRoute children={<Depoimentos />} />}
+        />
+        <Route
+          path="/links-uteis"
+          element={<ProtectedRoute children={<LinksUteis />} />}
+        />
+        <Route
+          path="/servicos-ufba"
+          element={<ProtectedRoute children={<ServicosUfba />} />}
+        />
+
+        {/* Rotas administrativas */}
         <Route
           path="/admin"
           element={
-            <ProtectedRoute redirectPath="/login" adminOnly>
+            <ProtectedRoute redirectPath="/home" adminOnly>
               <AdminController />
             </ProtectedRoute>
           }
@@ -40,7 +50,7 @@ function App() {
         <Route
           path="/admin/new-testimonials"
           element={
-            <ProtectedRoute redirectPath="/login" adminOnly>
+            <ProtectedRoute redirectPath="/home" adminOnly>
               <NewTestimonials />
             </ProtectedRoute>
           }
@@ -48,7 +58,7 @@ function App() {
         <Route
           path="/admin/update-testimonials"
           element={
-            <ProtectedRoute redirectPath="/login" adminOnly>
+            <ProtectedRoute redirectPath="/home" adminOnly>
               <UpdateTestimonials />
             </ProtectedRoute>
           }
@@ -56,12 +66,13 @@ function App() {
         <Route
           path="/admin/home"
           element={
-            <ProtectedRoute redirectPath="/login" adminOnly>
+            <ProtectedRoute redirectPath="/home" adminOnly>
               <AdminHome />
             </ProtectedRoute>
           }
         />
 
+        {/* Rotas de recuperação de senha */}
         <Route
           path="/newPassword"
           element={
@@ -71,7 +82,6 @@ function App() {
             />
           }
         />
-        <Route path="/recovery" element={<Recovery />} />
         <Route
           path="/recoveryToken"
           element={
@@ -81,17 +91,9 @@ function App() {
             />
           }
         />
-        <Route
-          path="/newPassword"
-          element={
-            <PasswordResetRoute
-              element={<NewPassword />}
-              routeName="newPassword"
-            />
-          }
-        />
+        <Route path="/recovery" element={<Recovery />} />
 
-        {/* Rota genérica para redirecionar para /home */}
+        {/* Rota padrão para redirecionar para /home */}
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
     </BrowserRouter>
