@@ -1,5 +1,4 @@
-import React from 'react';
-import Carousel from './Carousel.jsx';
+import Carousel from '../carousel/Carousel.jsx';
 import '../../styles/global.css';
 import '../../styles/home.css';
 import OndaNavbar from '../navbar/OndaNavbar.jsx';

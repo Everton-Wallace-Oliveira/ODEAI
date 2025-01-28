@@ -7,6 +7,7 @@ export function updateTestimonials(
   nameInterviewed,
   interviewerName,
   description,
+  date, 
   image,
   accessToken
 ) {
@@ -15,27 +16,33 @@ export function updateTestimonials(
     nameInterviewed: nameInterviewed,
     interviewerName: interviewerName,
     description: description,
-    date: new Date().toISOString(), 
+    date: date, 
   };
 
-  objToSubmit = image ? { ...objToSubmit, image: image } : objToSubmit;
+  if (image) {
+    objToSubmit.image = image;
+  }
 
   return new Promise((resolve, reject) => {
     const headers = {
-      headers: {
-        'Content-type': 'application/json', 
-        Authorization: `Bearer ${accessToken}`,
-      },
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
     };
 
     axios
-      .patch(`${UPDATE_TESTIMONIAL_ENDPOINT}${id}`, objToSubmit, headers) 
+      .patch(`${UPDATE_TESTIMONIAL_ENDPOINT}${id}`, objToSubmit, { headers })
       .then((response) => {
-        console.log(response);
         resolve(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        if (error.response) {
+          console.error('Erro na resposta da API:', error.response.data);
+          console.error('Status do erro:', error.response.status);
+        } else if (error.request) {
+          console.error('Erro na requisição:', error.request);
+        } else {
+          console.error('Erro ao configurar a requisição:', error.message);
+        }
         reject(error);
       });
   });

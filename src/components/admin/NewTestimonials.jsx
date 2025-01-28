@@ -4,7 +4,7 @@ import { AlertContext } from '../../contexts/alertContext';
 import { AlertTypeContext } from '../../contexts/alertTypeContext';
 import { AlertColorContext } from '../../contexts/alertColorContext';
 import { registerTestimonials } from '../../services/testimonials/registerTestimonials';
-import Header from '../home/Header';
+import Header from '../header/Header';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/global.css';
 import { Link } from 'react-router-dom';

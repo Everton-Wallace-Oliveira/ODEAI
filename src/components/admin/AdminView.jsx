@@ -16,7 +16,7 @@ import DeleteFilledIcon from '@mui/icons-material/DeleteOutlined';
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
-import Header from '../home/Header';
+import Header from '../header/Header';
 import EditUser from './EditUser';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
