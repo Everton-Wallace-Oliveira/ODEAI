@@ -213,9 +213,9 @@
 }
 
 .depoimentos-admin-buttons {
-  position: absolute;
+  position:absolute;
   bottom: 20px; /* Distância da parte inferior */
-  right: 20px; /* Distância da parte direita */
+  right: 200px; /* Distância da parte direita */
   display: flex;
   gap: 10px; /* Espaço entre os botões */
 }
