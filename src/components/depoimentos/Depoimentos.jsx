@@ -14,6 +14,7 @@ function Depoimentos() {
   const token = localStorage.getItem('token');
   const isAdmin = localStorage.getItem('isAdmin') === 'true';
   const navigate = useNavigate();
+  console.log(isAdmin)
 
   useEffect(() => {
     getAllTestimonials(token).then((response) => {
@@ -45,6 +46,12 @@ function Depoimentos() {
           console.error('Erro ao remover o depoimento:', error);
         });
     }
+  };
+
+  // Função para formatar a data para o formato dd/mm/aa
+  const formatDate = (date) => {
+    const options = { day: '2-digit', month: '2-digit', year: '2-digit' };
+    return new Date(date).toLocaleDateString('pt-BR', options);
   };
 
   return (
@@ -79,7 +86,10 @@ function Depoimentos() {
                       <h1 className="depoimentos-details-title">{review.title}</h1>
                       <h3 className="depoimentos-details-author">{review.nameInterviewed}</h3>
                     </div>
-                    <div className="depoimentos-details-data">{review.date}</div>
+                    <div className="depoimentos-details-data">
+                      {/* Formatação da data */}
+                      Data da entrevista: {formatDate(review.date)}
+                    </div>
                   </div>
 
                   <div className="depoimentos-details-descricao">

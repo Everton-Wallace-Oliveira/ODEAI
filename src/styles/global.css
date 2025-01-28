@@ -204,8 +204,43 @@
   padding: 0px 20px 20px 20px;
   border-radius: 18px;
   background-color: blanchedalmond;
+  position: relative;
+
 }
 
 .depoimentos-details-descricao p {
   text-align: justify;
+}
+
+.depoimentos-admin-buttons {
+  position: absolute;
+  bottom: 20px; /* Distância da parte inferior */
+  right: 20px; /* Distância da parte direita */
+  display: flex;
+  gap: 10px; /* Espaço entre os botões */
+}
+
+.btn-info, .btn-remove {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-info {
+  background-color: #4CAF50; /* Cor do botão Editar */
+  color: white;
+}
+
+.btn-remove {
+  background-color: #F44336; /* Cor do botão Remover */
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: #45a049;
+}
+
+.btn-remove:hover {
+  background-color: #e53935;
 }
