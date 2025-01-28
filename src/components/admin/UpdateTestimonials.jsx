@@ -18,7 +18,9 @@ export default function UpdateTestimonials() {
   const [form, setForm] = useState({
     _id: testimonials._id ?? '',
     title: testimonials.name ?? '',
-    desc: testimonials.description ?? '',
+    desc: testimonials.description ?? '', // Descrição do depoimento
+    nameInterviewed: testimonials.nameInterviewed ?? '', // Nome do entrevistado
+    interviewerName: testimonials.interviewerName ?? '', // Nome do entrevistador
     image: testimonials.image ?? '',
     endereco: testimonials.address ?? '',
     horario: testimonials.openingHours ?? '',
@@ -69,6 +71,12 @@ export default function UpdateTestimonials() {
     if (form.desc !== testimonials.description) {
       updatedFields.description = form.desc;
     }
+    if (form.nameInterviewed !== testimonials.nameInterviewed) {
+      updatedFields.nameInterviewed = form.nameInterviewed;
+    }
+    if (form.interviewerName !== testimonials.interviewerName) {
+      updatedFields.interviewerName = form.interviewerName;
+    }
     if (form.date !== testimonials.date) {
       updatedFields.date = form.date;
     }
@@ -80,8 +88,8 @@ export default function UpdateTestimonials() {
       updateTestimonials(
         form._id,
         updatedFields.title,
-        updatedFields.nameInterviewed ?? testimonials.nameInterviewed,
-        updatedFields.interviewerName ?? testimonials.interviewerName,
+        updatedFields.nameInterviewed,
+        updatedFields.interviewerName,
         updatedFields.description,
         updatedFields.date,
         updatedFields.image,
@@ -146,6 +154,14 @@ export default function UpdateTestimonials() {
             type="date"
             name="date"
             value={form.date}
+            onChange={handleChange}
+          />
+
+          <h3 className="titletestimonials">Descrição</h3>
+          <textarea
+            className="inputDesc"
+            name="desc"
+            value={form.desc}
             onChange={handleChange}
           />
 

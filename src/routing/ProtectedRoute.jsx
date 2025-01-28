@@ -9,13 +9,5 @@ export const ProtectedRoute = ({
   const token = localStorage.getItem('token');
   const isAdmin = localStorage.getItem('isAdmin') === 'true'; 
 
-  if (!token || isTokenExpired(token)) {
-    return <Navigate to={redirectPath} replace />;
-  }
-
-  if (adminOnly && !isAdmin) {
-    return <Navigate to={redirectPath} replace />;
-  }
-
   return children;
 };

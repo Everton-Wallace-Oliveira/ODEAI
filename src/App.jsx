@@ -19,25 +19,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Rotas públicas: Login e Cadastro */}
+      <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
-
-        {/* Rotas protegidas */}
-        <Route path="/home" element={<ProtectedRoute children={<Home />} />} />
-        <Route
-          path="/depoimentos"
-          element={<ProtectedRoute children={<Depoimentos />} />}
-        />
-        <Route
-          path="/links-uteis"
-          element={<ProtectedRoute children={<LinksUteis />} />}
-        />
-        <Route
-          path="/servicos-ufba"
-          element={<ProtectedRoute children={<ServicosUfba />} />}
-        />
-
+        <Route path="/depoimentos" element={<Depoimentos />} />
+        <Route path="/links-uteis" element={<LinksUteis />} />
+        <Route path="/servicos-ufba" element={<ServicosUfba />} />
+        
         {/* Rotas administrativas */}
         <Route
           path="/admin"

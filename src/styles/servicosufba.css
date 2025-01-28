@@ -1,10 +1,6 @@
 .servicos-ufba .page-layout {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  min-height: 85vh;
-=======
->>>>>>> a2f5ed764acc75380b3de803072d3fbf63dfe897
   flex: 1;
   min-height: 87vh;
 }
