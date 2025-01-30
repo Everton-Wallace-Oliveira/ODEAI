@@ -167,6 +167,8 @@ export default function Admin({
           padding: 15,
           width: '100%',
           alignItems: 'center',
+          marginTop: '60px',
+
         }}
       >
         <div
