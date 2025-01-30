@@ -9,3 +9,17 @@
   justify-content: center;
   height: 100vh;
 }
+
+.link-ver {
+  color: inherit; /* Herda a cor do elemento pai */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.link-ver:visited {
+  color: inherit; /* Garante que a cor do link não mude após a visita */
+}
+
+.link-ver:hover {
+  color: #007bff; /* Opcional: cor ao passar o mouse */
+}
+
